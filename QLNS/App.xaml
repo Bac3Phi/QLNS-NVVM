@@ -1,0 +1,9 @@
+﻿<Application x:Class="QLNS.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:QLNS"
+             StartupUri="WINDOWS/SACH_WINDOW.xaml">
+    <Application.Resources>
+         
+    </Application.Resources>
+</Application>
