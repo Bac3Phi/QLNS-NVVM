@@ -28,3 +28,33 @@ F:\UIT\GIT\WPF- NVVM\WPF-NVVM\QLNS\obj\Debug\QLNS.csproj.GenerateResource.Cache
 F:\UIT\GIT\WPF- NVVM\WPF-NVVM\QLNS\obj\Debug\QLNS.csproj.CoreCompileInputs.cache
 F:\UIT\GIT\WPF- NVVM\WPF-NVVM\QLNS\obj\Debug\QLNS.exe
 F:\UIT\GIT\WPF- NVVM\WPF-NVVM\QLNS\obj\Debug\QLNS.pdb
+F:\UIT\GIT\QLNS-NVVM\QLNS\bin\Debug\QLNS.exe.config
+F:\UIT\GIT\QLNS-NVVM\QLNS\bin\Debug\QLNS.exe
+F:\UIT\GIT\QLNS-NVVM\QLNS\bin\Debug\QLNS.pdb
+F:\UIT\GIT\QLNS-NVVM\QLNS\bin\Debug\MahApps.Metro.dll
+F:\UIT\GIT\QLNS-NVVM\QLNS\bin\Debug\MaterialDesignColors.dll
+F:\UIT\GIT\QLNS-NVVM\QLNS\bin\Debug\MaterialDesignThemes.MahApps.dll
+F:\UIT\GIT\QLNS-NVVM\QLNS\bin\Debug\MaterialDesignThemes.Wpf.dll
+F:\UIT\GIT\QLNS-NVVM\QLNS\bin\Debug\System.Windows.Interactivity.dll
+F:\UIT\GIT\QLNS-NVVM\QLNS\bin\Debug\MahApps.Metro.pdb
+F:\UIT\GIT\QLNS-NVVM\QLNS\bin\Debug\MahApps.Metro.xml
+F:\UIT\GIT\QLNS-NVVM\QLNS\bin\Debug\MaterialDesignThemes.Wpf.pdb
+F:\UIT\GIT\QLNS-NVVM\QLNS\bin\Debug\MaterialDesignThemes.Wpf.xml
+F:\UIT\GIT\QLNS-NVVM\QLNS\obj\Debug\QLNS.csprojResolveAssemblyReference.cache
+F:\UIT\GIT\QLNS-NVVM\QLNS\obj\Debug\MainWindow.g.cs
+F:\UIT\GIT\QLNS-NVVM\QLNS\obj\Debug\WINDOWS\BANSACH_WINDOW.g.cs
+F:\UIT\GIT\QLNS-NVVM\QLNS\obj\Debug\WINDOWS\KHACHHANG_WINDOW.g.cs
+F:\UIT\GIT\QLNS-NVVM\QLNS\obj\Debug\WINDOWS\SACH_WINDOW.g.cs
+F:\UIT\GIT\QLNS-NVVM\QLNS\obj\Debug\App.g.cs
+F:\UIT\GIT\QLNS-NVVM\QLNS\obj\Debug\QLNS_MarkupCompile.cache
+F:\UIT\GIT\QLNS-NVVM\QLNS\obj\Debug\QLNS_MarkupCompile.lref
+F:\UIT\GIT\QLNS-NVVM\QLNS\obj\Debug\MainWindow.baml
+F:\UIT\GIT\QLNS-NVVM\QLNS\obj\Debug\WINDOWS\BANSACH_WINDOW.baml
+F:\UIT\GIT\QLNS-NVVM\QLNS\obj\Debug\WINDOWS\KHACHHANG_WINDOW.baml
+F:\UIT\GIT\QLNS-NVVM\QLNS\obj\Debug\WINDOWS\SACH_WINDOW.baml
+F:\UIT\GIT\QLNS-NVVM\QLNS\obj\Debug\QLNS.g.resources
+F:\UIT\GIT\QLNS-NVVM\QLNS\obj\Debug\QLNS.Properties.Resources.resources
+F:\UIT\GIT\QLNS-NVVM\QLNS\obj\Debug\QLNS.csproj.GenerateResource.Cache
+F:\UIT\GIT\QLNS-NVVM\QLNS\obj\Debug\QLNS.csproj.CoreCompileInputs.cache
+F:\UIT\GIT\QLNS-NVVM\QLNS\obj\Debug\QLNS.exe
+F:\UIT\GIT\QLNS-NVVM\QLNS\obj\Debug\QLNS.pdb
