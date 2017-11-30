@@ -58,3 +58,5 @@ F:\UIT\GIT\QLNS-NVVM\QLNS\obj\Debug\QLNS.csproj.GenerateResource.Cache
 F:\UIT\GIT\QLNS-NVVM\QLNS\obj\Debug\QLNS.csproj.CoreCompileInputs.cache
 F:\UIT\GIT\QLNS-NVVM\QLNS\obj\Debug\QLNS.exe
 F:\UIT\GIT\QLNS-NVVM\QLNS\obj\Debug\QLNS.pdb
+F:\UIT\GIT\QLNS-NVVM\QLNS\obj\Debug\MAIN_WINDOW.g.cs
+F:\UIT\GIT\QLNS-NVVM\QLNS\obj\Debug\MAIN_WINDOW.baml
