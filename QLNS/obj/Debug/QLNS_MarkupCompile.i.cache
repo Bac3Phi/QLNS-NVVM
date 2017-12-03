@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-F:\UIT\GIT\QLNS-NVVM\QLNS\obj\Debug\
+C:\Users\15520\source\repos\UnderDogsProject-master\QLNS-NVVM\QLNS\obj\Debug\
 QLNS
 none
 false
 DEBUG;TRACE
-F:\UIT\GIT\QLNS-NVVM\QLNS\App.xaml
-5-1258019593
+C:\Users\15520\source\repos\UnderDogsProject-master\QLNS-NVVM\QLNS\App.xaml
+5-2087181960
 
-13-2120585421
-18-203323503
-MainWindow.xaml;MAIN_WINDOW.xaml;View\BANSACH_WINDOW.xaml;View\KHACHHANG_WINDOW.xaml;View\SACH_WINDOW.xaml;
+19-1314681570
+181509404326
+MainWindow.xaml;MAIN_WINDOW.xaml;Views\BANSACH_WINDOW.xaml;Views\BOOK_WINDOW.xaml;Views\CLIENT_WINDOW.xaml;
 
 True
 

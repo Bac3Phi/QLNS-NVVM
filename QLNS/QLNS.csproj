@@ -69,17 +69,20 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Models\ClientModel.cs" />
+    <Compile Include="Properties\Annotations.cs" />
+    <Compile Include="Commands\RelayCommand.cs" />
     <Compile Include="MAIN_WINDOW.xaml.cs">
       <DependentUpon>MAIN_WINDOW.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\BANSACH_WINDOW.xaml.cs">
-      <DependentUpon>BANSACH_WINDOW.xaml</DependentUpon>
+    <Compile Include="ViewModels\BookViewModel.cs" />
+    <Compile Include="ViewModels\ClientViewModel.cs" />
+    <Compile Include="Views\BANSACH_WINDOW.xaml.cs" />
+    <Compile Include="Views\BOOK_WINDOW.xaml.cs">
+      <DependentUpon>BOOK_WINDOW.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\KHACHHANG_WINDOW.xaml.cs">
-      <DependentUpon>KHACHHANG_WINDOW.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\SACH_WINDOW.xaml.cs">
-      <DependentUpon>SACH_WINDOW.xaml</DependentUpon>
+    <Compile Include="Views\CLIENT_WINDOW.xaml.cs">
+      <DependentUpon>CLIENT_WINDOW.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -97,20 +100,21 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\BANSACH_WINDOW.xaml">
+    <Page Include="Views\BANSACH_WINDOW.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\BOOK_WINDOW.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\KHACHHANG_WINDOW.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\SACH_WINDOW.xaml">
+    <Page Include="Views\CLIENT_WINDOW.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\BookModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -137,9 +141,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Model\" />
-    <Folder Include="ViewModel\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
