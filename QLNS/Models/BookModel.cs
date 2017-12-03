@@ -8,7 +8,8 @@ using System.Threading.Tasks;
 
 namespace QLNS.Models
 {
-    class BookModel : INotifyPropertyChanged
+ 
+    class BookModel : INotifyPropertyChanged,IDataErrorInfo
     {
         private string _name;
         private string _category;
@@ -74,5 +75,46 @@ namespace QLNS.Models
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
+        #region ErrorException
+
+        public string this[string columnName]
+        {
+            get
+            {
+                string result = null;
+                if (columnName == "Name")
+                {
+                    if (string.IsNullOrEmpty(Name))
+                        result = "Vui lòng nhập tên sách";
+                }
+                if (columnName == "Category")
+                {
+                    if (string.IsNullOrEmpty(Category))
+                        result = "Vui lòng nhập thể loại sách";
+                }
+                if (columnName == "Author")
+                {
+                    if (string.IsNullOrEmpty(Author))
+                        result = "Vui lòng nhập tác giả";
+                }
+                if (columnName == "Quantity")
+                {
+                    if (Quantity == 0 || string.IsNullOrEmpty(Quantity.ToString()))
+                        result = "Vui lòng nhập cập nhật số lượng tồn";
+                }
+                if (columnName == "Price")
+                {
+                    if (Price == 0 || string.IsNullOrEmpty(Quantity.ToString()))
+                        result = "Vui lòng nhập cập nhật đơn giá";
+                }
+                return result;
+            }
+        }
+
+        public string Error { get; }
+
+        #endregion
+
     }
 }

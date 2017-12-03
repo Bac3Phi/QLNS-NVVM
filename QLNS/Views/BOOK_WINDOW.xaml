@@ -5,13 +5,43 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:viewmodels ="clr-namespace:QLNS.ViewModels"
         mc:Ignorable="d"
-        MinHeight="500"
-        MinWidth="800"
-        Title="SACH_WINDOW" Height="550" Width="800">
+        MinHeight="560"
+        MinWidth="810"
+        Title="SACH_WINDOW" Height="560" Width="800">
     <Window.DataContext>
         <viewmodels:BookViewModel>
         </viewmodels:BookViewModel>
     </Window.DataContext>
+    <Window.Resources>
+
+        <Style TargetType="{x:Type Label}">
+            <Setter Property="Margin" Value="5,0,5,0" />
+            <Setter Property="HorizontalAlignment" Value="Right" />
+        </Style>
+        <Style TargetType="{x:Type TextBox}">
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="0,2,40,2" />
+            <Setter Property="Validation.ErrorTemplate">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <DockPanel LastChildFill="true">
+                            <Border Background="Red" DockPanel.Dock="right" Margin="5,0,0,0" Width="15" Height="15" CornerRadius="10"
+                                    ToolTip="{Binding ElementName=customAdorner, Path=AdornedElement.(Validation.Errors)[0].ErrorContent}">
+                                <TextBlock Text="!" VerticalAlignment="center" HorizontalAlignment="center" FontWeight="Bold" Foreground="white">
+                                </TextBlock>
+                            </Border>
+                            <AdornedElementPlaceholder Name="customAdorner" VerticalAlignment="Center" >
+                                <Border BorderBrush="red" BorderThickness="1" 
+                                        ToolTip="{Binding ElementName=customAdorner, Path=AdornedElement.(Validation.Errors)[0].ErrorContent}"
+                                        />
+
+                            </AdornedElementPlaceholder>
+                        </DockPanel>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="130" ></RowDefinition>
@@ -20,26 +50,35 @@
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
             <GroupBox Header="Nhập Thông Tin Sách" Margin="15,10,15,0">
-                <Grid>
+                <Grid x:Name="grid">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition></ColumnDefinition>
                         <ColumnDefinition></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <Grid Grid.Column="0" >
-                        <Label Content="Mã Sách: " HorizontalAlignment="Left" Margin="5,5,0,0" VerticalAlignment="Top"/>
-                        <Label Content="Tên Sách: " HorizontalAlignment="Left" Margin="5,31,0,0" VerticalAlignment="Top"/>
-                        <Label Content="Thể Loại: " HorizontalAlignment="Left" Margin="7,59,0,0" VerticalAlignment="Top"/>
-                        <TextBox HorizontalAlignment="Left" Height="23" Margin="72,3,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="293"/>
-                        <TextBox Text="{Binding NewBook.Name , UpdateSourceTrigger=PropertyChanged}"  HorizontalAlignment="Left" Height="23" Margin="72,31,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="293"/>
-                        <TextBox Text="{Binding NewBook.Category , UpdateSourceTrigger=PropertyChanged}"  HorizontalAlignment="Left" Height="23" Margin="72,59,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="293"/>
+                        <Label Content="Tên Sách: " HorizontalAlignment="Left" Margin="0,6,0,0" VerticalAlignment="Top"/>
+                        <Label Content="Thể Loại: " HorizontalAlignment="Left" Margin="0,33,0,0" VerticalAlignment="Top"/>
+                        <Label Content="Tác Giả: " HorizontalAlignment="Left" Margin="0,59,0,0" VerticalAlignment="Top"/>
+                        <TextBox Text="{Binding NewBook.Name , UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=true, NotifyOnValidationError=true}" 
+                                 Validation.Error="Validation_Error"
+                                 HorizontalAlignment="Left" Height="23" Margin="72,6,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="275"/>
+                        <TextBox Text="{Binding NewBook.Category , UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=true, NotifyOnValidationError=true}" 
+                                 Validation.Error="Validation_Error"  
+                                 HorizontalAlignment="Left" Height="23" Margin="72,34,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="275"/>
+                        <TextBox Text="{Binding NewBook.Author , UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=true, NotifyOnValidationError=true}" 
+                                 Validation.Error="Validation_Error"
+                                 HorizontalAlignment="Left" Height="23" Margin="72,62,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="275"/>
+
                     </Grid>
                     <Grid Grid.Column="1">
-                        <Label Content="Tác Giả: " HorizontalAlignment="Left" Margin="5,3,0,0" VerticalAlignment="Top"/>
-                        <Label Content="Số Lượng Tồn: " HorizontalAlignment="Left" Margin="5,28,0,0" VerticalAlignment="Top"/>
-                        <Label Content="Đơn Giá: " HorizontalAlignment="Left" Margin="5,59,0,0" VerticalAlignment="Top"/>
-                        <TextBox Text="{Binding NewBook.Author , UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="23" Margin="95,3,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="270"/>
-                        <TextBox Text="{Binding NewBook.Quantity}"  HorizontalAlignment="Left" Height="23" Margin="95,31,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="270"/>
-                        <TextBox Text="{Binding NewBook.Price, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="23" Margin="95,59,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="270"/>
+                        <Label Content="Số Lượng Tồn: " HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top"/>
+                        <Label Content="Đơn Giá: " HorizontalAlignment="Left" Margin="10,36,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.576,0.192"/>
+                        <Label Content="SL Nhập: " HorizontalAlignment="Left" Margin="10,62,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.283,0.615"/>
+                        <TextBox Text="{Binding NewBook.Quantity, ValidatesOnDataErrors=true, NotifyOnValidationError=true}" 
+                                 Validation.Error="Validation_Error"    HorizontalAlignment="Left" Height="23" Margin="100,8,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="249"/>
+                        <TextBox Text="{Binding NewBook.Price, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=true, NotifyOnValidationError=true}" 
+                                 Validation.Error="Validation_Error"   HorizontalAlignment="Left" Height="23" Margin="100,36,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="249"/>
+                        <TextBox x:Name="txtSLNhap"  HorizontalAlignment="Left" Height="23" Margin="100,64,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="249" IsEnabled="False" Text="Vui lòng chọn vào bảng bên dưới"/>
 
                     </Grid>
                 </Grid>
@@ -49,20 +88,22 @@
         <Grid Grid.Row="1">
             <GroupBox Header="Chức Năng" Margin="15,10,15,0">
                 <Grid>
-                    <Button Content="Thêm" Command="{Binding AddCommand}" HorizontalAlignment="Center" Margin="231,5,443,0" VerticalAlignment="Top" Width="76"/>
+                    <Button Click="ButtonAdd_OnClick"
+                        Content="Thêm" Command="{Binding AddCommand}" 
+                            HorizontalAlignment="Center" Margin="234,5,440,0" VerticalAlignment="Top" Width="76"/>
 
                     <Button Content="Xóa" Command="{Binding RemoveComand}" HorizontalAlignment="Center" Margin="335,5,341,0" VerticalAlignment="Top" Width="74"/>
 
-                    <Button Content="Clear" Click="ButtonBase_OnClick"  HorizontalAlignment="Center" Margin="432,5,244,0" VerticalAlignment="Top" Width="74"/>
+                    <Button Content="Làm mới" Click="ButtonBase_OnClick"  HorizontalAlignment="Center" Margin="432,5,244,0" VerticalAlignment="Top" Width="74"/>
                 </Grid>
 
             </GroupBox>
 
         </Grid>
         <Grid Grid.Row="2">
-            <GroupBox Header="Thông Tin Sách" Margin="15,10,15,0">
+            <GroupBox Header="Thông Tin Sách" Margin="15,10,15,10">
                 <Grid>
-                    <ListView ItemsSource="{Binding ListBook, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedBook}" x:Name="ListBook" >
+                    <ListView ItemsSource="{Binding ListBook, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedBook}" x:Name="ListBook" Margin="5" SelectionChanged="ListBook_SelectionChanged" >
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <WrapPanel>
@@ -74,6 +115,16 @@
                                 </WrapPanel>
                             </DataTemplate>
                         </ListView.ItemTemplate>
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Tên Sách" Width="140" DisplayMemberBinding="{Binding Name}" />
+                                <GridViewColumn Header="Thể Loại" Width="120" DisplayMemberBinding="{Binding Category}" />
+                                <GridViewColumn Header="Tác giả" Width="120" DisplayMemberBinding="{Binding Author}" />
+                                <GridViewColumn Header="Số Lượng Tồn" Width="120" DisplayMemberBinding="{Binding Quantity}" />
+                                <GridViewColumn Header="Đơn Giá" Width="120" DisplayMemberBinding="{Binding Price}" />
+                                <GridViewColumn Header="Số Lượng Nhập" Width="120" DisplayMemberBinding="{Binding Price}" />
+                            </GridView>
+                        </ListView.View>
                     </ListView>
                 </Grid>
 
@@ -82,5 +133,5 @@
         </Grid>
     </Grid>
 
-   
+
 </Window>
