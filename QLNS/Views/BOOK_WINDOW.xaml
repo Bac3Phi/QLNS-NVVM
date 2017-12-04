@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:viewmodels ="clr-namespace:QLNS.ViewModels"
         mc:Ignorable="d"
-        MinHeight="560"
-        MinWidth="810"
-        Title="SACH_WINDOW" Height="560" Width="800">
+        
+        MinWidth="840"
+        Title="SACH_WINDOW" Height="520" Width="830">
     <Window.DataContext>
         <viewmodels:BookViewModel>
         </viewmodels:BookViewModel>
@@ -62,16 +62,16 @@
                         <TextBox x:Name="txtTen" Text="{Binding NewBook.Name , UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=true, NotifyOnValidationError=true}" 
                                  Validation.Error="Validation_Error"
                                  IsReadOnly="True"
-                                 HorizontalAlignment="Left" Height="23" Margin="72,6,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="275"/>
+                                 HorizontalAlignment="Left" Height="23" Margin="72,6,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="275" LostFocus="txtTen_LostFocus"/>
                         <TextBox x:Name="txtTheloai" Text="{Binding NewBook.Category , UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=true, NotifyOnValidationError=true}" 
                                  Validation.Error="Validation_Error"  
                                  IsReadOnly="True"
-                                 HorizontalAlignment="Left" Height="23" Margin="72,34,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="275"/>
+                                 HorizontalAlignment="Left" Height="23" Margin="72,34,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="275" LostFocus="txtTheloai_LostFocus"/>
                         <TextBox x:Name="txtTacgia" Text="{Binding NewBook.Author , UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=true, NotifyOnValidationError=true}" 
                                  Validation.Error="Validation_Error"
                                  IsReadOnly="True"
-                                 HorizontalAlignment="Left" Height="23" Margin="72,62,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="275"/>
-
+                                 HorizontalAlignment="Left" Height="23" Margin="72,62,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="275" LostFocus="txtTacgia_LostFocus"/>
+                   
                     </Grid>
                     <Grid Grid.Column="1">
                         <Label Content="Số Lượng Tồn: " HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top"/>
@@ -80,12 +80,12 @@
                         <TextBox x:Name="txtSLTon" Text="{Binding NewBook.Quantity, ValidatesOnDataErrors=true, NotifyOnValidationError=true}" 
                                  Validation.Error="Validation_Error" 
                                  IsReadOnly="True"
-                                 HorizontalAlignment="Left" Height="23" Margin="100,8,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="249"/>
+                                 HorizontalAlignment="Left" Height="23" Margin="100,8,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="249" LostFocus="txtSLTon_LostFocus"/>
                         <TextBox x:Name="txtGia" Text="{Binding NewBook.Price, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=true, NotifyOnValidationError=true}" 
                                  Validation.Error="Validation_Error"
                                  IsReadOnly="True"
-                                 HorizontalAlignment="Left" Height="23" Margin="100,36,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="249"/>
-                        <TextBox x:Name="txtSLNhap" Text="{Binding AddionalQuantity , UpdateSourceTrigger=PropertyChanged}"
+                                 HorizontalAlignment="Left" Height="23" Margin="100,36,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="249" LostFocus="txtGia_LostFocus"/>
+                        <TextBox x:Name="txtSLNhap" Text="{Binding AddionalQuantity , UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=true, NotifyOnValidationError=true}"
                                  HorizontalAlignment="Left" Height="23" Margin="100,64,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="249" IsEnabled="False" />
 
                     </Grid>
@@ -97,18 +97,18 @@
             <GroupBox Header="Chức Năng" Margin="15,10,15,0">
                 <Grid>
                     <Button x:Name="btnThem" Click="ButtonAdd_OnClick"
-                        Visibility="Collapsed"
+                            Visibility="Collapsed"
                         Content="Thêm" Command="{Binding AddCommand}" 
-                            HorizontalAlignment="Center" Margin="144,5,540,0" VerticalAlignment="Top" Width="76"/>
+                            HorizontalAlignment="Center" Margin="265,5,429,0" VerticalAlignment="Top" Width="76"/>
 
-                    <Button x:Name="btnXoa"  Visibility="Collapsed" Content="Xóa" Command="{Binding RemoveComand}" HorizontalAlignment="Center" Margin="243,5,443,0" VerticalAlignment="Top" Width="74" RenderTransformOrigin="-0.777,0.6"/>
+                    <Button x:Name="btnXoa"  Visibility="Collapsed" Content="Xóa" Command="{Binding RemoveComand}" HorizontalAlignment="Center" Margin="348,5,348,0" VerticalAlignment="Top" Width="74" RenderTransformOrigin="-0.777,0.6"/>
 
-                    <Button Content="Làm mới" Click="ButtonBase_OnClick"  HorizontalAlignment="Center" Margin="671,5,15,0" VerticalAlignment="Top" Width="74"/>
+                    <Button Content="Làm mới" Click="ButtonBase_OnClick"  HorizontalAlignment="Center" Margin="674,5,22,0" VerticalAlignment="Top" Width="74"/>
                     
-                    <CheckBox Content="Sửa" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked" HorizontalAlignment="Center" Margin="578,6,108,0" VerticalAlignment="Top" Width="74" FontSize="15"/>
+                    <CheckBox Content="Sửa" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked" HorizontalAlignment="Center" Margin="600,10,96,0" VerticalAlignment="Top" Width="74" FontSize="12"/>
                     <Button x:Name="btnNhap"
                         Content="Nhập" Command="{Binding UpdateCommand}" 
-                        HorizontalAlignment="Center" Margin="341,5,343,0" VerticalAlignment="Top" Width="76"/>
+                        HorizontalAlignment="Center" Margin="319,5,385,0" VerticalAlignment="Top" Width="76"/>
                 </Grid>
 
             </GroupBox>
@@ -126,6 +126,7 @@
                                     <TextBlock Text="{Binding Author}" HorizontalAlignment="Center" Margin="30,5,30,0"></TextBlock>
                                     <TextBlock Text="{Binding Quantity}" HorizontalAlignment="Center" Margin="30,5,30,0"></TextBlock>
                                     <TextBlock Text="{Binding Price}" HorizontalAlignment="Center" Margin="30,5,30,0"></TextBlock>
+                                   
                                 </WrapPanel>
                             </DataTemplate>
                         </ListView.ItemTemplate>

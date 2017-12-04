@@ -29,10 +29,10 @@ namespace QLNS.Views
         }
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
-           
+          
             ListBook.SelectedItem = null;
-            txtSLNhap.Text = "Vui lòng chọn vào bảng bên dưới";
-            txtSLNhap.IsEnabled = false;
+            
+          //  txtSLNhap.IsEnabled = false;
         }
 
         private void ListBook_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -48,23 +48,7 @@ namespace QLNS.Views
                 _noOfErrorsOnScreen--;
         }
 
-        private void AddCustomer_CanExecute(object sender, CanExecuteRoutedEventArgs e)
-        {
-            e.CanExecute = _noOfErrorsOnScreen == 0;
-            e.Handled = true;
-        }
-
-        private void AddCustomer_Executed(object sender, ExecutedRoutedEventArgs e)
-        {
-            BookModel cust = grid.DataContext as BookModel;
-            // write code here to add Customer
-
-            // reset UI
-            _book = new BookModel();
-            grid.DataContext = _book;
-            e.Handled = true;
-
-        }
+       
 
         private void ButtonAdd_OnClick(object sender, RoutedEventArgs e)
         {
@@ -106,7 +90,9 @@ namespace QLNS.Views
 
         private void CheckBox_Checked(object sender, RoutedEventArgs e)
         {
+            btnThem.IsEnabled = false;
             txtGia.IsReadOnly = false;
+            
             txtSLTon.IsReadOnly = false;
             txtTen.IsReadOnly = false;
             txtTheloai.IsReadOnly = false;
@@ -120,15 +106,52 @@ namespace QLNS.Views
 
         private void CheckBox_Unchecked(object sender, RoutedEventArgs e)
         {
+
+ 
             txtGia.IsReadOnly = true;
             txtSLTon.IsReadOnly = true;
-            txtTen.IsReadOnly = true;
+          
             txtTheloai.IsReadOnly = true;
             txtTacgia.IsReadOnly = true;
             txtSLNhap.IsReadOnly = false;
             btnNhap.Visibility = Visibility.Visible;
             btnThem.Visibility = Visibility.Collapsed;
             btnXoa.Visibility = Visibility.Collapsed;
+        }
+
+        private void txtTen_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (_noOfErrorsOnScreen == 0)
+                btnThem.IsEnabled = true;
+            else btnThem.IsEnabled = false;
+        }
+
+        private void txtTheloai_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (_noOfErrorsOnScreen == 0)
+                btnThem.IsEnabled = true;
+            else btnThem.IsEnabled = false;
+        }
+
+        private void txtTacgia_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (_noOfErrorsOnScreen == 0)
+                btnThem.IsEnabled = true;
+            else btnThem.IsEnabled = false;
+        }
+
+        private void txtSLTon_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (_noOfErrorsOnScreen == 0)
+                btnThem.IsEnabled = true;
+            else btnThem.IsEnabled = false;
+        }
+
+        private void txtGia_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (_noOfErrorsOnScreen == 0)
+                btnThem.IsEnabled = true;
+            else btnThem.IsEnabled = false;
         }
     }
 }
