@@ -78,5 +78,57 @@ namespace QLNS.Views
                 MessageBox.Show("Thanh cong");
             }
         }
+
+        private void RadioButton_Click(object sender, RoutedEventArgs e)
+        {
+            RadioButton t = (RadioButton)sender;
+            if(t.IsChecked == false)
+            {
+                txtGia.IsReadOnly = false;
+                txtSLTon.IsReadOnly = false;
+                txtTen.IsReadOnly = false;
+                txtTheloai.IsReadOnly = false;
+                txtTacgia.IsReadOnly = false;
+                txtSLNhap.IsReadOnly = true;
+                t.IsChecked = true;
+            }
+            else
+            {
+                txtGia.IsReadOnly = true;
+                txtSLTon.IsReadOnly = true;
+                txtTen.IsReadOnly = true;
+                txtTheloai.IsReadOnly = true;
+                txtTacgia.IsReadOnly = true;
+                txtSLNhap.IsReadOnly = false;
+                t.IsChecked = false;
+            }
+        }
+
+        private void CheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            txtGia.IsReadOnly = false;
+            txtSLTon.IsReadOnly = false;
+            txtTen.IsReadOnly = false;
+            txtTheloai.IsReadOnly = false;
+            txtTacgia.IsReadOnly = false;
+            txtSLNhap.IsReadOnly = true;
+
+            btnNhap.Visibility = Visibility.Collapsed;
+            btnThem.Visibility = Visibility.Visible;
+            btnXoa.Visibility = Visibility.Visible;
+        }
+
+        private void CheckBox_Unchecked(object sender, RoutedEventArgs e)
+        {
+            txtGia.IsReadOnly = true;
+            txtSLTon.IsReadOnly = true;
+            txtTen.IsReadOnly = true;
+            txtTheloai.IsReadOnly = true;
+            txtTacgia.IsReadOnly = true;
+            txtSLNhap.IsReadOnly = false;
+            btnNhap.Visibility = Visibility.Visible;
+            btnThem.Visibility = Visibility.Collapsed;
+            btnXoa.Visibility = Visibility.Collapsed;
+        }
     }
 }

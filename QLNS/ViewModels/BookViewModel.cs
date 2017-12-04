@@ -30,7 +30,20 @@ namespace QLNS.ViewModels
                 );
             }
         }
-
+     public ICommand UpdateCommand   // Update Quantity
+        {
+            get
+            {
+                return new RelayCommand<object>(
+                    null, // CanExecute()
+                    book =>
+                    {
+                        SelectedBook.Quantity += AddionalQuantity;
+                        AddionalQuantity = 0;
+                    }
+                );
+            }
+        }
         public ICommand RemoveComand
         {
             get
@@ -54,6 +67,7 @@ namespace QLNS.ViewModels
         }
 
         private BookModel _selectedBook;
+
 
         public BookModel SelectedBook
         {
@@ -86,6 +100,15 @@ namespace QLNS.ViewModels
                 OnPropertyChanged(nameof(NewBook));
             }
         }
+
+        public int AddionalQuantity {
+            get => _addionalQuantity;
+            set {
+                _addionalQuantity = value;
+                OnPropertyChanged(nameof(AddionalQuantity));
+            } }
+
+        private int _addionalQuantity ;
 
         private ObservableCollection<BookModel> _listBooks;
 
