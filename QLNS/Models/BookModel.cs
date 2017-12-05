@@ -11,6 +11,7 @@ namespace QLNS.Models
  
     class BookModel : INotifyPropertyChanged,IDataErrorInfo
     {
+        #region Property
         private string _name;
         private string _category;
         private int _price;
@@ -75,7 +76,7 @@ namespace QLNS.Models
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-
+#endregion
         #region ErrorException
 
         public string this[string columnName]

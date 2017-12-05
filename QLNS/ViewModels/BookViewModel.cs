@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
 using QLNS.Annotations;
@@ -116,25 +118,7 @@ namespace QLNS.ViewModels
         {
            _listBooks = new ObservableCollection<BookModel>();
 
-            ListBook.Add(new BookModel
-            {
-                Category = "Test1",
-                Name = "ABC",
-                Price = 5,
-                Quantity = 10,
-                Author = "Phong"
-
-            });
-
-            ListBook.Add(new BookModel
-            {
-                Category = "Test5",
-                Name = "DEF",
-                Price = 5,
-                Quantity = 10,
-                Author = "Phong"
-            });
-
+            ReadBookData();
             NewBook =  new BookModel();
         }
 
@@ -163,6 +147,86 @@ namespace QLNS.ViewModels
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        public void WriteBookData()
+        {
+            using (StreamWriter sw = new StreamWriter("BookData.txt"))
+
+                foreach (BookModel book in ListBook)
+                {
+                    try
+                    {
+                        sw.WriteLine("@  " + book.Name);
+                        sw.WriteLine("@! " + book.Category);
+                        sw.WriteLine("@@ " + book.Author);
+                        sw.WriteLine("@# " + book.Price.ToString());
+                        sw.WriteLine("@$ " + book.Quantity.ToString());
+                        sw.WriteLine(Environment.NewLine); // 2 cai xuong dong
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBox.Show("Can't write data!!!");
+                    }
+
+                }
+        }
+
+        public void ReadBookData()
+        {
+            String data = "";
+            try
+            {
+                using (StreamReader sw = new StreamReader("BookData.txt"))
+                {
+                    data = sw.ReadToEnd();
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Can't read data!!!");
+            }
+           
+
+            String[] fullbook = data.Split(new string[] { Environment.NewLine + Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
+            foreach (String book in fullbook)
+            {
+
+                String[] bookdata = book.Split(new string[] { Environment.NewLine}, StringSplitOptions.RemoveEmptyEntries);
+                BookModel _book = new BookModel();
+                foreach (String property in bookdata)
+                {
+                    String check = property.Substring(0, 3);
+                    switch (check)
+                    {
+                        case "@  ":
+                        {
+                            _book.Name = property.Replace(check, "");
+                        }
+                        break;
+
+                        case"@! ":
+                        {
+                            _book.Category= property.Replace(check,"");
+                        }break;
+                        case"@@ ":
+                        {
+                            _book.Author= property.Replace(check,"");
+                            
+                        }break;
+                        case"@# ":
+                        {
+                            _book.Price= Int32.Parse(property.Replace(check,""));
+                        }break;
+                        case"@$ ":
+                        {
+                            _book.Quantity= Int32.Parse(property.Replace(check,""));
+                        }break;
+                    }
+                    
+                }
+                ListBook.Add(_book);
+            }    
         }
     }
 }
