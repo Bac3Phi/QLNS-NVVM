@@ -28,19 +28,21 @@ namespace QLNS
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
-            BANSACH_WINDOW window = new BANSACH_WINDOW();
+            
+            BOOK_WINDOW window = new BOOK_WINDOW();
             window.ShowDialog();
         }
 
         private void MenuItem_Click_1(object sender, RoutedEventArgs e)
         {
-            BOOK_WINDOW window = new BOOK_WINDOW();
+            CLIENT_WINDOW window = new CLIENT_WINDOW(); ;
             window.ShowDialog();
         }
 
         private void MenuItem_Click_2(object sender, RoutedEventArgs e)
         {
-            CLIENT_WINDOW window = new CLIENT_WINDOW();;
+           
+            BANSACH_WINDOW window = new BANSACH_WINDOW();
             window.ShowDialog();
         }
 
