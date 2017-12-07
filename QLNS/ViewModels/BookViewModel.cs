@@ -18,7 +18,8 @@ namespace QLNS.ViewModels
 {
     class BookViewModel: INotifyPropertyChanged
     {
-     public ICommand AddCommand
+        public string path = Directory.GetCurrentDirectory() + "\\Database\\BookData.txt";
+        public ICommand AddCommand
         {
             get
             {
@@ -151,7 +152,7 @@ namespace QLNS.ViewModels
 
         public void WriteBookData()
         {
-            using (StreamWriter sw = new StreamWriter("BookData.txt"))
+            using (StreamWriter sw = new StreamWriter(path))
 
                 foreach (BookModel book in ListBook)
                 {
@@ -166,7 +167,7 @@ namespace QLNS.ViewModels
                     }
                     catch (Exception e)
                     {
-                        MessageBox.Show("Can't write data!!!");
+                        MessageBox.Show("Can't write data!!!\nError: "+e);
                     }
 
                 }
@@ -177,14 +178,14 @@ namespace QLNS.ViewModels
             String data = "";
             try
             {
-                using (StreamReader sw = new StreamReader("BookData.txt"))
+                using (StreamReader sw = new StreamReader(path))
                 {
                     data = sw.ReadToEnd();
                 }
             }
             catch (Exception e)
             {
-                MessageBox.Show("Can't read data!!!");
+                MessageBox.Show("Can't Read data!!!\nError: " + e);
             }
            
 
