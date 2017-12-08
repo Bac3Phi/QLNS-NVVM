@@ -58,27 +58,27 @@
                         <Label Content="Địa Chỉ: " HorizontalAlignment="Left" Margin="9,36,0,0" VerticalAlignment="Top"/>
                         <Label Content="Điện Thoại: " HorizontalAlignment="Left" Margin="10,64,0,0" VerticalAlignment="Top"/>
 
-                        <TextBox x:Name="txtHoten"
+                        <TextBox x:Name="TxtHoten"
                                  Text="{Binding NewClient.Name , UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=true, NotifyOnValidationError=true}" 
                             HorizontalAlignment="Left" Height="23" Margin="88,11,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="255"/>
-                        <TextBox x:Name="txtDiaChi"
+                        <TextBox x:Name="TxtDiaChi"
                                  Text="{Binding NewClient.Address , UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=true, NotifyOnValidationError=true}" 
                                  HorizontalAlignment="Left" Height="23" Margin="88,39,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="255"/>
-                        <TextBox x:Name="txtDienthoai"
+                        <TextBox x:Name="TxtDienthoai"
                                  Text="{Binding NewClient.Phonenum , UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=true, NotifyOnValidationError=true}" 
                                  HorizontalAlignment="Left" Height="23" Margin="88,67,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="255"/>
                     </Grid>
                     <Grid Grid.Column="1">
-                        <Label Content="Email: " HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                        <Label Content="Email: "   HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
                         <Label Content="Số tiền nợ: " HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.629,0.154"/>
                         <Label Content="Số tiền thu: " HorizontalAlignment="Left" Margin="10,69,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.629,0.154"/>
-                        <TextBox x:Name="txtEmail"
+                        <TextBox x:Name="TxtEmail"
                                  Text="{Binding NewClient.Email , UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=true, NotifyOnValidationError=true}" 
                                  HorizontalAlignment="Left" Height="23" Margin="100,13,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="255"/>
-                        <TextBox x:Name="txtSotienno"
-                                 Text="{Binding NewClient.Debt , UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=true, NotifyOnValidationError=true}" 
+                        <TextBox x:Name="TxtSotienno"
+                                 Text="{Binding NewClient.Debt , UpdateSourceTrigger=PropertyChanged}"
                                  HorizontalAlignment="Left" Height="23" Margin="100,41,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="255"/>
-                        <TextBox HorizontalAlignment="Left" Height="23" Margin="100,69,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="255"/>
+                        <TextBox  x:Name="TxtThu" HorizontalAlignment="Left" Height="23" Margin="100,69,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="255"/>
 
                     </Grid>
                 </Grid>
@@ -88,12 +88,19 @@
         <Grid Grid.Row="1">
             <GroupBox Header="Chức Năng" Margin="15,10,15,0">
                 <Grid>
-                    <Button Command="{Binding AddCommand}" 
-                        Content="Thêm" HorizontalAlignment="Center" Margin="231,5,443,0" VerticalAlignment="Top" Width="76"/>
+                    <Button x:Name="BtnThem"
+                            Visibility="Collapsed"
+                            Content="Thêm" Command="{Binding AddCommand}" 
+                            HorizontalAlignment="Center" Margin="265,5,429,0" VerticalAlignment="Top" Width="76"/>
 
-                    <Button Content="Sửa" HorizontalAlignment="Center" Margin="335,5,341,0" VerticalAlignment="Top" Width="74"/>
+                    <Button x:Name="BtnXoa"  Visibility="Collapsed" Content="Xóa" Command="{Binding RemoveComand}" HorizontalAlignment="Center" Margin="348,5,348,0" VerticalAlignment="Top" Width="74" RenderTransformOrigin="-0.777,0.6"/>
 
-                    <Button Content="Xóa" HorizontalAlignment="Center" Margin="432,5,244,0" VerticalAlignment="Top" Width="74"/>
+                    <Button Content="Làm mới" Click="ButtonBase_OnClick"  HorizontalAlignment="Center" Margin="674,5,22,0" VerticalAlignment="Top" Width="74"/>
+
+                    <CheckBox Content="Sửa" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked" HorizontalAlignment="Center" Margin="600,10,96,0" VerticalAlignment="Top" Width="74" FontSize="12"/>
+                    <Button x:Name="BtnNhap"
+                            Content="Nhập" Command="{Binding UpdateCommand}" 
+                            HorizontalAlignment="Center" Margin="319,5,385,0" VerticalAlignment="Top" Width="76"/>
                 </Grid>
 
             </GroupBox>
@@ -118,10 +125,10 @@
                         <ListView.View>
                             <GridView>
                                 <GridViewColumn Header="Tên Khách Hàng" Width="140" DisplayMemberBinding="{Binding Name}" />
-                                <GridViewColumn Header="Địa Chỉ" Width="120" DisplayMemberBinding="{Binding Category}" />
-                                <GridViewColumn Header="Điện Thoại" Width="120" DisplayMemberBinding="{Binding Author}" />
-                                <GridViewColumn Header="Email" Width="120" DisplayMemberBinding="{Binding Quantity}" />
-                                <GridViewColumn Header="Số Tiền Nợ" Width="120" DisplayMemberBinding="{Binding Price}" />
+                                <GridViewColumn Header="Địa Chỉ" Width="120" DisplayMemberBinding="{Binding Address}" />
+                                <GridViewColumn Header="Điện Thoại" Width="120" DisplayMemberBinding="{Binding Phonenum}" />
+                                <GridViewColumn Header="Email" Width="120" DisplayMemberBinding="{Binding Email}" />
+                                <GridViewColumn Header="Số Tiền Nợ" Width="120" DisplayMemberBinding="{Binding Debt}" />
 
                             </GridView>
                         </ListView.View>

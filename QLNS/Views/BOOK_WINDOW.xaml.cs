@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using QLNS.Models;
+using QLNS.ViewModels;
 
 namespace QLNS.Views
 {
@@ -37,8 +39,8 @@ namespace QLNS.Views
 
         private void ListBook_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            txtSLNhap.Clear();
-            txtSLNhap.IsEnabled = true;
+            TxtSlNhap.Clear();
+            TxtSlNhap.IsEnabled = true;
         }
         private void Validation_Error(object sender, ValidationErrorEventArgs e)
         {
@@ -54,7 +56,7 @@ namespace QLNS.Views
         {
             if (_noOfErrorsOnScreen !=0)
             {
-                MessageBox.Show("Bug còn kìa");
+                MessageBox.Show("Dien it nhat 5 thuoc tinh cua Sach");
                 return;
             }
             else
@@ -68,90 +70,119 @@ namespace QLNS.Views
             RadioButton t = (RadioButton)sender;
             if(t.IsChecked == false)
             {
-                txtGia.IsReadOnly = false;
-                txtSLTon.IsReadOnly = false;
-                txtTen.IsReadOnly = false;
-                txtTheloai.IsReadOnly = false;
-                txtTacgia.IsReadOnly = false;
-                txtSLNhap.IsReadOnly = true;
+                TxtGia.IsReadOnly = false;
+                TxtSlTon.IsReadOnly = false;
+                TxtTen.IsReadOnly = false;
+                TxtTheloai.IsReadOnly = false;
+                TxtTacgia.IsReadOnly = false;
+                TxtSlNhap.IsReadOnly = true;
                 t.IsChecked = true;
             }
             else
             {
-                txtGia.IsReadOnly = true;
-                txtSLTon.IsReadOnly = true;
-                txtTen.IsReadOnly = true;
-                txtTheloai.IsReadOnly = true;
-                txtTacgia.IsReadOnly = true;
-                txtSLNhap.IsReadOnly = false;
+                TxtGia.IsReadOnly = true;
+                TxtSlTon.IsReadOnly = true;
+                TxtTen.IsReadOnly = true;
+                TxtTheloai.IsReadOnly = true;
+                TxtTacgia.IsReadOnly = true;
+                TxtSlNhap.IsReadOnly = false;
                 t.IsChecked = false;
             }
         }
 
         private void CheckBox_Checked(object sender, RoutedEventArgs e)
         {
-            btnThem.IsEnabled = false;
-            txtGia.IsReadOnly = false;
+            BtnThem.IsEnabled = false;
+            TxtGia.IsReadOnly = false;
             
-            txtSLTon.IsReadOnly = false;
-            txtTen.IsReadOnly = false;
-            txtTheloai.IsReadOnly = false;
-            txtTacgia.IsReadOnly = false;
-            txtSLNhap.IsReadOnly = true;
+            TxtSlTon.IsReadOnly = false;
+            TxtTen.IsReadOnly = false;
+            TxtTheloai.IsReadOnly = false;
+            TxtTacgia.IsReadOnly = false;
+            TxtSlNhap.IsReadOnly = true;
 
-            btnNhap.Visibility = Visibility.Collapsed;
-            btnThem.Visibility = Visibility.Visible;
-            btnXoa.Visibility = Visibility.Visible;
+            BtnNhap.Visibility = Visibility.Collapsed;
+            BtnThem.Visibility = Visibility.Visible;
+            BtnXoa.Visibility = Visibility.Visible;
         }
 
         private void CheckBox_Unchecked(object sender, RoutedEventArgs e)
         {
 
  
-            txtGia.IsReadOnly = true;
-            txtSLTon.IsReadOnly = true;
+            TxtGia.IsReadOnly = true;
+            TxtSlTon.IsReadOnly = true;
           
-            txtTheloai.IsReadOnly = true;
-            txtTacgia.IsReadOnly = true;
-            txtSLNhap.IsReadOnly = false;
-            btnNhap.Visibility = Visibility.Visible;
-            btnThem.Visibility = Visibility.Collapsed;
-            btnXoa.Visibility = Visibility.Collapsed;
+            TxtTheloai.IsReadOnly = true;
+            TxtTacgia.IsReadOnly = true;
+            TxtSlNhap.IsReadOnly = false;
+            BtnNhap.Visibility = Visibility.Visible;
+            BtnThem.Visibility = Visibility.Collapsed;
+            BtnXoa.Visibility = Visibility.Collapsed;
         }
 
         private void txtTen_LostFocus(object sender, RoutedEventArgs e)
         {
             if (_noOfErrorsOnScreen == 0)
-                btnThem.IsEnabled = true;
-            else btnThem.IsEnabled = false;
+                BtnThem.IsEnabled = true;
+            else BtnThem.IsEnabled = false;
         }
 
         private void txtTheloai_LostFocus(object sender, RoutedEventArgs e)
         {
             if (_noOfErrorsOnScreen == 0)
-                btnThem.IsEnabled = true;
-            else btnThem.IsEnabled = false;
+                BtnThem.IsEnabled = true;
+            else BtnThem.IsEnabled = false;
         }
 
         private void txtTacgia_LostFocus(object sender, RoutedEventArgs e)
         {
             if (_noOfErrorsOnScreen == 0)
-                btnThem.IsEnabled = true;
-            else btnThem.IsEnabled = false;
+                BtnThem.IsEnabled = true;
+            else BtnThem.IsEnabled = false;
         }
 
         private void txtSLTon_LostFocus(object sender, RoutedEventArgs e)
         {
             if (_noOfErrorsOnScreen == 0)
-                btnThem.IsEnabled = true;
-            else btnThem.IsEnabled = false;
+                BtnThem.IsEnabled = true;
+            else BtnThem.IsEnabled = false;
         }
 
         private void txtGia_LostFocus(object sender, RoutedEventArgs e)
         {
             if (_noOfErrorsOnScreen == 0)
-                btnThem.IsEnabled = true;
-            else btnThem.IsEnabled = false;
+                BtnThem.IsEnabled = true;
+            else BtnThem.IsEnabled = false;
+        }
+
+
+        private void BOOK_WINDOW_OnClosed(object sender, EventArgs e)
+        {
+            WriteBookData();
+        }
+
+        public void WriteBookData()
+        {
+            using (StreamWriter sw = new StreamWriter(Directory.GetCurrentDirectory() + "\\Database\\BookData.txt"))
+
+                foreach (BookModel book in ListBook.ItemsSource)
+                {
+                    try
+                    {
+                        sw.WriteLine("@  " + book.Name);
+                        sw.WriteLine("@! " + book.Category);
+                        sw.WriteLine("@@ " + book.Author);
+                        sw.WriteLine("@# " + book.Price.ToString());
+                        sw.WriteLine("@$ " + book.Quantity.ToString());
+                        sw.WriteLine(Environment.NewLine); // 2 cai xuong dong
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBox.Show("Can't write data!!!\nError: " + e);
+                    }
+
+                }
         }
     }
 }

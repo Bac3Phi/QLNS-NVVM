@@ -85,6 +85,32 @@ namespace QLNS.ViewModels
                 OnPropertyChanged(nameof(NewClient));
             }
         }
+        public ICommand UpdateCommand   // Update Quantity
+        {
+            get
+            {
+                return new RelayCommand<object>(
+                    null, // CanExecute()
+                    book =>
+                    {
+                        SelectedClient.Debt -= PaidMoney;
+                        PaidMoney = 0;
+                    }
+                );
+            }
+        }
+
+        public int PaidMoney
+        {
+            get=> _paidMoney;
+            set
+            {
+                _paidMoney = value;
+                OnPropertyChanged(nameof(PaidMoney));
+            }
+        }
+
+        private int _paidMoney;
 
         private ObservableCollection<ClientModel> _listClients;
 
@@ -101,7 +127,7 @@ namespace QLNS.ViewModels
                 Phonenum = "123434"
 
             });
-
+                
            
             NewClient = new ClientModel();
         }

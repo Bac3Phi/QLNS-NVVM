@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:viewmodels ="clr-namespace:QLNS.ViewModels"
         mc:Ignorable="d"
-        
+        Closing="BOOK_WINDOW_OnClosed"
         MinWidth="840"
         Title="SACH_WINDOW" Height="520" Width="830">
     <Window.DataContext>
@@ -50,7 +50,7 @@
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
             <GroupBox Header="Nhập Thông Tin Sách" Margin="15,10,15,0">
-                <Grid x:Name="grid">
+                <Grid x:Name="Grid">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition></ColumnDefinition>
                         <ColumnDefinition></ColumnDefinition>
@@ -59,15 +59,15 @@
                         <Label Content="Tên Sách: " HorizontalAlignment="Left" Margin="0,6,0,0" VerticalAlignment="Top"/>
                         <Label Content="Thể Loại: " HorizontalAlignment="Left" Margin="0,33,0,0" VerticalAlignment="Top"/>
                         <Label Content="Tác Giả: " HorizontalAlignment="Left" Margin="0,59,0,0" VerticalAlignment="Top"/>
-                        <TextBox x:Name="txtTen" Text="{Binding NewBook.Name , UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=true, NotifyOnValidationError=true}" 
+                        <TextBox x:Name="TxtTen" Text="{Binding NewBook.Name , UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=true, NotifyOnValidationError=true}" 
                                  Validation.Error="Validation_Error"
                                  IsReadOnly="True"
                                  HorizontalAlignment="Left" Height="23" Margin="72,6,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="275" LostFocus="txtTen_LostFocus"/>
-                        <TextBox x:Name="txtTheloai" Text="{Binding NewBook.Category , UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=true, NotifyOnValidationError=true}" 
+                        <TextBox x:Name="TxtTheloai" Text="{Binding NewBook.Category , UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=true, NotifyOnValidationError=true}" 
                                  Validation.Error="Validation_Error"  
                                  IsReadOnly="True"
                                  HorizontalAlignment="Left" Height="23" Margin="72,34,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="275" LostFocus="txtTheloai_LostFocus"/>
-                        <TextBox x:Name="txtTacgia" Text="{Binding NewBook.Author , UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=true, NotifyOnValidationError=true}" 
+                        <TextBox x:Name="TxtTacgia" Text="{Binding NewBook.Author , UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=true, NotifyOnValidationError=true}" 
                                  Validation.Error="Validation_Error"
                                  IsReadOnly="True"
                                  HorizontalAlignment="Left" Height="23" Margin="72,62,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="275" LostFocus="txtTacgia_LostFocus"/>
@@ -77,15 +77,15 @@
                         <Label Content="Số Lượng Tồn: " HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top"/>
                         <Label Content="Đơn Giá: " HorizontalAlignment="Left" Margin="10,36,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.576,0.192"/>
                         <Label Content="SL Nhập: " HorizontalAlignment="Left" Margin="10,62,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.283,0.615"/>
-                        <TextBox x:Name="txtSLTon" Text="{Binding NewBook.Quantity, ValidatesOnDataErrors=true, NotifyOnValidationError=true}" 
+                        <TextBox x:Name="TxtSlTon" Text="{Binding NewBook.Quantity, ValidatesOnDataErrors=true, NotifyOnValidationError=true}" 
                                  Validation.Error="Validation_Error" 
                                  IsReadOnly="True"
                                  HorizontalAlignment="Left" Height="23" Margin="100,8,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="249" LostFocus="txtSLTon_LostFocus"/>
-                        <TextBox x:Name="txtGia" Text="{Binding NewBook.Price, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=true, NotifyOnValidationError=true}" 
+                        <TextBox x:Name="TxtGia" Text="{Binding NewBook.Price, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=true, NotifyOnValidationError=true}" 
                                  Validation.Error="Validation_Error"
                                  IsReadOnly="True"
                                  HorizontalAlignment="Left" Height="23" Margin="100,36,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="249" LostFocus="txtGia_LostFocus"/>
-                        <TextBox x:Name="txtSLNhap" Text="{Binding AddionalQuantity , UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=true, NotifyOnValidationError=true}"
+                        <TextBox x:Name="TxtSlNhap" Text="{Binding AddionalQuantity , UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=true, NotifyOnValidationError=true}"
                                  HorizontalAlignment="Left" Height="23" Margin="100,64,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="249" IsEnabled="False" />
 
                     </Grid>
@@ -94,19 +94,19 @@
             </GroupBox>
         </Grid>
         <Grid Grid.Row="1">
-            <GroupBox Header="Chức Năng" Margin="15,10,15,0">
+            <GroupBox Header="Chức Năng" Margin="15,9,15,1">
                 <Grid>
-                    <Button x:Name="btnThem" Click="ButtonAdd_OnClick"
+                    <Button x:Name="BtnThem" Click="ButtonAdd_OnClick"
                             Visibility="Collapsed"
                         Content="Thêm" Command="{Binding AddCommand}" 
                             HorizontalAlignment="Center" Margin="265,5,429,0" VerticalAlignment="Top" Width="76"/>
 
-                    <Button x:Name="btnXoa"  Visibility="Collapsed" Content="Xóa" Command="{Binding RemoveComand}" HorizontalAlignment="Center" Margin="348,5,348,0" VerticalAlignment="Top" Width="74" RenderTransformOrigin="-0.777,0.6"/>
+                    <Button x:Name="BtnXoa"  Visibility="Collapsed" Content="Xóa" Command="{Binding RemoveComand}" HorizontalAlignment="Center" Margin="348,5,348,0" VerticalAlignment="Top" Width="74" RenderTransformOrigin="-0.777,0.6"/>
 
                     <Button Content="Làm mới" Click="ButtonBase_OnClick"  HorizontalAlignment="Center" Margin="674,5,22,0" VerticalAlignment="Top" Width="74"/>
                     
                     <CheckBox Content="Sửa" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked" HorizontalAlignment="Center" Margin="600,10,96,0" VerticalAlignment="Top" Width="74" FontSize="12"/>
-                    <Button x:Name="btnNhap"
+                    <Button x:Name="BtnNhap"
                         Content="Nhập" Command="{Binding UpdateCommand}" 
                         HorizontalAlignment="Center" Margin="319,5,385,0" VerticalAlignment="Top" Width="76"/>
                 </Grid>

@@ -27,13 +27,14 @@ namespace QLNS.ViewModels
                     null, // CanExecute()
                     book =>
                     {
-                        AddBook(NewBook);
+                        if(NewBook.Name != "" && NewBook.Author !="" && NewBook.Category!="" && NewBook.Price != 0)
+                            AddBook(NewBook);
                         NewBook =  new BookModel();
                     }
                 );
             }
         }
-     public ICommand UpdateCommand   // Update Quantity
+        public ICommand UpdateCommand   // Update Quantity
         {
             get
             {
@@ -57,8 +58,8 @@ namespace QLNS.ViewModels
                     );
             }
         }
-        
 
+        
         public ObservableCollection<BookModel> ListBook
         {
             get => _listBooks;
@@ -118,7 +119,7 @@ namespace QLNS.ViewModels
         public BookViewModel()
         {
            _listBooks = new ObservableCollection<BookModel>();
-
+            //_listBooks.Add(new BookModel() {Author = "phi",Category = "abs",Name = "TEst1",Price = 10,Quantity = 10});
             ReadBookData();
             NewBook =  new BookModel();
         }
@@ -150,28 +151,7 @@ namespace QLNS.ViewModels
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        public void WriteBookData()
-        {
-            using (StreamWriter sw = new StreamWriter(path))
-
-                foreach (BookModel book in ListBook)
-                {
-                    try
-                    {
-                        sw.WriteLine("@  " + book.Name);
-                        sw.WriteLine("@! " + book.Category);
-                        sw.WriteLine("@@ " + book.Author);
-                        sw.WriteLine("@# " + book.Price.ToString());
-                        sw.WriteLine("@$ " + book.Quantity.ToString());
-                        sw.WriteLine(Environment.NewLine); // 2 cai xuong dong
-                    }
-                    catch (Exception e)
-                    {
-                        MessageBox.Show("Can't write data!!!\nError: "+e);
-                    }
-
-                }
-        }
+       
 
         public void ReadBookData()
         {
@@ -185,7 +165,7 @@ namespace QLNS.ViewModels
             }
             catch (Exception e)
             {
-                MessageBox.Show("Can't Read data!!!\nError: " + e);
+               // MessageBox.Show("Can't Read data!!!\nError: " + e);
             }
            
 
@@ -226,7 +206,8 @@ namespace QLNS.ViewModels
                     }
                     
                 }
-                ListBook.Add(_book);
+                if(bookdata.Count()>= 5 )
+                    ListBook.Add(_book);
             }    
         }
     }

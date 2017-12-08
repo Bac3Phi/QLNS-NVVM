@@ -31,6 +31,7 @@ namespace QLNS
             
             BOOK_WINDOW window = new BOOK_WINDOW();
             window.ShowDialog();
+          
         }
 
         private void MenuItem_Click_1(object sender, RoutedEventArgs e)
