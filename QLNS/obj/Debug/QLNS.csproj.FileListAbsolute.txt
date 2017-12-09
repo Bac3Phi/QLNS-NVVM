@@ -108,7 +108,6 @@ C:\Users\15520\Desktop\QLNS-NVVM\QLNS\bin\Debug\MaterialDesignThemes.Wpf.xml
 C:\Users\15520\Desktop\QLNS-NVVM\QLNS\obj\Debug\QLNS.csprojResolveAssemblyReference.cache
 C:\Users\15520\Desktop\QLNS-NVVM\QLNS\obj\Debug\MainWindow.g.cs
 C:\Users\15520\Desktop\QLNS-NVVM\QLNS\obj\Debug\MAIN_WINDOW.g.cs
-C:\Users\15520\Desktop\QLNS-NVVM\QLNS\obj\Debug\Views\BANSACH_WINDOW.g.cs
 C:\Users\15520\Desktop\QLNS-NVVM\QLNS\obj\Debug\Views\BOOK_WINDOW.g.cs
 C:\Users\15520\Desktop\QLNS-NVVM\QLNS\obj\Debug\Views\CLIENT_WINDOW.g.cs
 C:\Users\15520\Desktop\QLNS-NVVM\QLNS\obj\Debug\App.g.cs
@@ -117,7 +116,6 @@ C:\Users\15520\Desktop\QLNS-NVVM\QLNS\obj\Debug\QLNS_MarkupCompile.cache
 C:\Users\15520\Desktop\QLNS-NVVM\QLNS\obj\Debug\QLNS_MarkupCompile.lref
 C:\Users\15520\Desktop\QLNS-NVVM\QLNS\obj\Debug\MainWindow.baml
 C:\Users\15520\Desktop\QLNS-NVVM\QLNS\obj\Debug\MAIN_WINDOW.baml
-C:\Users\15520\Desktop\QLNS-NVVM\QLNS\obj\Debug\Views\BANSACH_WINDOW.baml
 C:\Users\15520\Desktop\QLNS-NVVM\QLNS\obj\Debug\Views\BOOK_WINDOW.baml
 C:\Users\15520\Desktop\QLNS-NVVM\QLNS\obj\Debug\Views\CLIENT_WINDOW.baml
 C:\Users\15520\Desktop\QLNS-NVVM\QLNS\obj\Debug\QLNS.g.resources
@@ -126,3 +124,7 @@ C:\Users\15520\Desktop\QLNS-NVVM\QLNS\obj\Debug\QLNS.csproj.GenerateResource.Cac
 C:\Users\15520\Desktop\QLNS-NVVM\QLNS\obj\Debug\QLNS.csproj.CoreCompileInputs.cache
 C:\Users\15520\Desktop\QLNS-NVVM\QLNS\obj\Debug\QLNS.exe
 C:\Users\15520\Desktop\QLNS-NVVM\QLNS\obj\Debug\QLNS.pdb
+C:\Users\15520\Desktop\QLNS-NVVM\QLNS\obj\Debug\Views\SELLING_BOOK_WINDOW.g.cs
+C:\Users\15520\Desktop\QLNS-NVVM\QLNS\obj\Debug\Views\SELLING_BOOK_WINDOW.baml
+C:\Users\15520\Desktop\QLNS-NVVM\QLNS\obj\Debug\Views\DialogSell.g.cs
+C:\Users\15520\Desktop\QLNS-NVVM\QLNS\obj\Debug\Views\DialogSell.baml

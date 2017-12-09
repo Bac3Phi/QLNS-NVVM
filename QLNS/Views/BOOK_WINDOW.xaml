@@ -62,15 +62,15 @@
                         <TextBox x:Name="TxtTen" Text="{Binding NewBook.Name , UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=true, NotifyOnValidationError=true}" 
                                  Validation.Error="Validation_Error"
                                  IsReadOnly="True"
-                                 HorizontalAlignment="Left" Height="23" Margin="72,6,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="275" LostFocus="txtTen_LostFocus"/>
+                                 HorizontalAlignment="Left" Height="23" Margin="72,6,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="275" LostFocus="txt_LostFocus"/>
                         <TextBox x:Name="TxtTheloai" Text="{Binding NewBook.Category , UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=true, NotifyOnValidationError=true}" 
                                  Validation.Error="Validation_Error"  
                                  IsReadOnly="True"
-                                 HorizontalAlignment="Left" Height="23" Margin="72,34,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="275" LostFocus="txtTheloai_LostFocus"/>
+                                 HorizontalAlignment="Left" Height="23" Margin="72,34,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="275" LostFocus="txt_LostFocus"/>
                         <TextBox x:Name="TxtTacgia" Text="{Binding NewBook.Author , UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=true, NotifyOnValidationError=true}" 
                                  Validation.Error="Validation_Error"
                                  IsReadOnly="True"
-                                 HorizontalAlignment="Left" Height="23" Margin="72,62,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="275" LostFocus="txtTacgia_LostFocus"/>
+                                 HorizontalAlignment="Left" Height="23" Margin="72,62,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="275" LostFocus="txt_LostFocus"/>
                    
                     </Grid>
                     <Grid Grid.Column="1">
@@ -80,11 +80,11 @@
                         <TextBox x:Name="TxtSlTon" Text="{Binding NewBook.Quantity, ValidatesOnDataErrors=true, NotifyOnValidationError=true}" 
                                  Validation.Error="Validation_Error" 
                                  IsReadOnly="True"
-                                 HorizontalAlignment="Left" Height="23" Margin="100,8,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="249" LostFocus="txtSLTon_LostFocus"/>
+                                 HorizontalAlignment="Left" Height="23" Margin="100,8,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="249" LostFocus="txt_LostFocus"/>
                         <TextBox x:Name="TxtGia" Text="{Binding NewBook.Price, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=true, NotifyOnValidationError=true}" 
                                  Validation.Error="Validation_Error"
                                  IsReadOnly="True"
-                                 HorizontalAlignment="Left" Height="23" Margin="100,36,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="249" LostFocus="txtGia_LostFocus"/>
+                                 HorizontalAlignment="Left" Height="23" Margin="100,36,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="249" LostFocus="txt_LostFocus"/>
                         <TextBox x:Name="TxtSlNhap" Text="{Binding AddionalQuantity , UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=true, NotifyOnValidationError=true}"
                                  HorizontalAlignment="Left" Height="23" Margin="100,64,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="249" IsEnabled="False" />
 

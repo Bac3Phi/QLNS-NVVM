@@ -18,6 +18,7 @@ namespace QLNS.ViewModels
 {
     class BookViewModel: INotifyPropertyChanged
     {
+
         public string path = Directory.GetCurrentDirectory() + "\\Database\\BookData.txt";
         public ICommand AddCommand
         {

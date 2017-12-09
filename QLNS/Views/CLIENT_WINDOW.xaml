@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:viewModels="clr-namespace:QLNS.ViewModels"
         mc:Ignorable="d"
+        Closing="CLIENT_WINDOW_OnClosing"
         Title="KHACHHANG_WINDOW" Height="500" Width="800">
     <Window.DataContext>
         <viewModels:ClientViewModel>
@@ -58,13 +59,19 @@
                         <Label Content="Địa Chỉ: " HorizontalAlignment="Left" Margin="9,36,0,0" VerticalAlignment="Top"/>
                         <Label Content="Điện Thoại: " HorizontalAlignment="Left" Margin="10,64,0,0" VerticalAlignment="Top"/>
 
-                        <TextBox x:Name="TxtHoten"
+                        <TextBox x:Name="TxtHoten" Validation.Error="Validation_Error"
+                                 LostFocus="txt_LostFocus"
+                                 IsReadOnly="True"
                                  Text="{Binding NewClient.Name , UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=true, NotifyOnValidationError=true}" 
                             HorizontalAlignment="Left" Height="23" Margin="88,11,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="255"/>
-                        <TextBox x:Name="TxtDiaChi"
+                        <TextBox x:Name="TxtDiaChi" Validation.Error="Validation_Error"
+                                 LostFocus="txt_LostFocus"
+                                 IsReadOnly="True"
                                  Text="{Binding NewClient.Address , UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=true, NotifyOnValidationError=true}" 
                                  HorizontalAlignment="Left" Height="23" Margin="88,39,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="255"/>
-                        <TextBox x:Name="TxtDienthoai"
+                        <TextBox x:Name="TxtDienthoai" Validation.Error="Validation_Error"
+                                 LostFocus="txt_LostFocus"
+                                 IsReadOnly="True"
                                  Text="{Binding NewClient.Phonenum , UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=true, NotifyOnValidationError=true}" 
                                  HorizontalAlignment="Left" Height="23" Margin="88,67,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="255"/>
                     </Grid>
@@ -72,11 +79,15 @@
                         <Label Content="Email: "   HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
                         <Label Content="Số tiền nợ: " HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.629,0.154"/>
                         <Label Content="Số tiền thu: " HorizontalAlignment="Left" Margin="10,69,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.629,0.154"/>
-                        <TextBox x:Name="TxtEmail"
+                        <TextBox x:Name="TxtEmail" Validation.Error="Validation_Error"
+                                 LostFocus="txt_LostFocus"
+                                 IsReadOnly="True"
                                  Text="{Binding NewClient.Email , UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=true, NotifyOnValidationError=true}" 
                                  HorizontalAlignment="Left" Height="23" Margin="100,13,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="255"/>
                         <TextBox x:Name="TxtSotienno"
-                                 Text="{Binding NewClient.Debt , UpdateSourceTrigger=PropertyChanged}"
+                                 IsReadOnly="True"
+                                 LostFocus="txt_LostFocus" Validation.Error="Validation_Error"
+                                 Text="{Binding NewClient.Debt , UpdateSourceTrigger=PropertyChanged , ValidatesOnDataErrors=true, NotifyOnValidationError=true}"
                                  HorizontalAlignment="Left" Height="23" Margin="100,41,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="255"/>
                         <TextBox  x:Name="TxtThu" HorizontalAlignment="Left" Height="23" Margin="100,69,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="255"/>
 
@@ -97,9 +108,9 @@
 
                     <Button Content="Làm mới" Click="ButtonBase_OnClick"  HorizontalAlignment="Center" Margin="674,5,22,0" VerticalAlignment="Top" Width="74"/>
 
-                    <CheckBox Content="Sửa" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked" HorizontalAlignment="Center" Margin="600,10,96,0" VerticalAlignment="Top" Width="74" FontSize="12"/>
+                    <CheckBox Content="Sửa" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked" HorizontalAlignment="Center" Margin="601,10,75,0" VerticalAlignment="Top" Width="74" FontSize="12"/>
                     <Button x:Name="BtnNhap"
-                            Content="Nhập" Command="{Binding UpdateCommand}" 
+                            Content="Thu" Command="{Binding UpdateCommand}" 
                             HorizontalAlignment="Center" Margin="319,5,385,0" VerticalAlignment="Top" Width="76"/>
                 </Grid>
 
@@ -109,7 +120,7 @@
         <Grid Grid.Row="2">
             <GroupBox Header="Thông Tin Khách Hàng" Margin="15,10,15,0">
                 <Grid>
-                    <ListView ItemsSource="{Binding ListClient, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedClient}" x:Name="ListBook" Margin="5" >
+                    <ListView ItemsSource="{Binding ListClient, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedClient}" x:Name="ListClient" Margin="5" >
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <WrapPanel>

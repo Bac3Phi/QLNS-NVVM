@@ -65,30 +65,7 @@ namespace QLNS.Views
             }
         }
 
-        private void RadioButton_Click(object sender, RoutedEventArgs e)
-        {
-            RadioButton t = (RadioButton)sender;
-            if(t.IsChecked == false)
-            {
-                TxtGia.IsReadOnly = false;
-                TxtSlTon.IsReadOnly = false;
-                TxtTen.IsReadOnly = false;
-                TxtTheloai.IsReadOnly = false;
-                TxtTacgia.IsReadOnly = false;
-                TxtSlNhap.IsReadOnly = true;
-                t.IsChecked = true;
-            }
-            else
-            {
-                TxtGia.IsReadOnly = true;
-                TxtSlTon.IsReadOnly = true;
-                TxtTen.IsReadOnly = true;
-                TxtTheloai.IsReadOnly = true;
-                TxtTacgia.IsReadOnly = true;
-                TxtSlNhap.IsReadOnly = false;
-                t.IsChecked = false;
-            }
-        }
+       
 
         private void CheckBox_Checked(object sender, RoutedEventArgs e)
         {
@@ -121,41 +98,14 @@ namespace QLNS.Views
             BtnXoa.Visibility = Visibility.Collapsed;
         }
 
-        private void txtTen_LostFocus(object sender, RoutedEventArgs e)
+        private void txt_LostFocus(object sender, RoutedEventArgs e)
         {
             if (_noOfErrorsOnScreen == 0)
                 BtnThem.IsEnabled = true;
             else BtnThem.IsEnabled = false;
         }
 
-        private void txtTheloai_LostFocus(object sender, RoutedEventArgs e)
-        {
-            if (_noOfErrorsOnScreen == 0)
-                BtnThem.IsEnabled = true;
-            else BtnThem.IsEnabled = false;
-        }
-
-        private void txtTacgia_LostFocus(object sender, RoutedEventArgs e)
-        {
-            if (_noOfErrorsOnScreen == 0)
-                BtnThem.IsEnabled = true;
-            else BtnThem.IsEnabled = false;
-        }
-
-        private void txtSLTon_LostFocus(object sender, RoutedEventArgs e)
-        {
-            if (_noOfErrorsOnScreen == 0)
-                BtnThem.IsEnabled = true;
-            else BtnThem.IsEnabled = false;
-        }
-
-        private void txtGia_LostFocus(object sender, RoutedEventArgs e)
-        {
-            if (_noOfErrorsOnScreen == 0)
-                BtnThem.IsEnabled = true;
-            else BtnThem.IsEnabled = false;
-        }
-
+       
 
         private void BOOK_WINDOW_OnClosed(object sender, EventArgs e)
         {

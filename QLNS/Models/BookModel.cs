@@ -17,7 +17,17 @@ namespace QLNS.Models
         private int _price;
         private string _author;
         private int _quantity;
+        private int _sellquantity = 0;
 
+        public int SellQuantity
+        {
+            get => _sellquantity;
+            set
+            {
+                _sellquantity = value;
+                OnPropertyChanged(nameof(SellQuantity));
+            }
+        }
         public int Quantity
         {
             get => _quantity;
@@ -114,6 +124,8 @@ namespace QLNS.Models
         }
 
         public string Error { get; }
+
+ 
 
         #endregion
 

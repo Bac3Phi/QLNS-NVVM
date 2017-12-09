@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace QLNS.Models
 {
-    class ClientModel : INotifyPropertyChanged
+    class ClientModel : INotifyPropertyChanged, IDataErrorInfo
     {
         private string _name;
         private string _address;
@@ -73,6 +73,44 @@ namespace QLNS.Models
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
+        public string this[string columnName]
+        {
+            get
+            {
+                string result = null;
+                if (columnName == "Name")
+                {
+                    if (string.IsNullOrEmpty(Name))
+                        result = "Vui lòng nhập tên Khách Hàng";
+                }
+                if (columnName == "Address")
+                {
+                    if (string.IsNullOrEmpty(Address))
+                        result = "Vui lòng nhập Địa Chỉ";
+                }
+
+                if (columnName == "Phonenum")
+                {
+                    if (string.IsNullOrEmpty(Phonenum))
+                        result = "Vui lòng nhập Số Điện Thoại";
+                }
+
+                if (columnName == "Email")
+                {
+                    if (string.IsNullOrEmpty(Email))
+                        result = "Vui lòng nhập Email";
+                }
+                if (columnName == "Debt")
+                {
+                    if (string.IsNullOrEmpty(Debt.ToString()))
+                        result = "Vui lòng nhập Số tiền nợ";
+                }
+                return result;
+            }
+        }
+
+        public string Error { get; }
     }
 }
 

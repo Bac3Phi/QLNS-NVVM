@@ -77,12 +77,18 @@
     </Compile>
     <Compile Include="ViewModels\BookViewModel.cs" />
     <Compile Include="ViewModels\ClientViewModel.cs" />
-    <Compile Include="Views\BANSACH_WINDOW.xaml.cs" />
+    <Compile Include="ViewModels\SellBookViewModel.cs" />
     <Compile Include="Views\BOOK_WINDOW.xaml.cs">
       <DependentUpon>BOOK_WINDOW.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\CLIENT_WINDOW.xaml.cs">
       <DependentUpon>CLIENT_WINDOW.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DialogSell.xaml.cs">
+      <DependentUpon>DialogSell.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SELLING_BOOK_WINDOW.xaml.cs">
+      <DependentUpon>SELLING_BOOK_WINDOW.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -100,15 +106,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\BANSACH_WINDOW.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Views\BOOK_WINDOW.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\CLIENT_WINDOW.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DialogSell.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SELLING_BOOK_WINDOW.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
