@@ -1,0 +1,14 @@
+﻿<Window x:Class="QLNS.Views.DialogSell"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QLNS.Views"
+        mc:Ignorable="d"
+        Title="Nhập Số Lượng Cần Bán" Height="146.391" Width="285.567">
+    <Grid Margin="0,0,2,-3">
+        <TextBox x:Name="Box" Margin="24,10,30,61"  ></TextBox>
+        <Button Margin="33,82,155,10" Click="Button_Click" Content="OK" ></Button>
+        <Button Margin="159,82,30,10" Click="ButtonBase_OnClick" Content="Cancel" RenderTransformOrigin="-0.9,-0.536" ></Button>
+    </Grid>
+</Window>
