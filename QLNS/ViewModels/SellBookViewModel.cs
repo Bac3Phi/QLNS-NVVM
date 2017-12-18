@@ -11,19 +11,33 @@ using System.Windows.Input;
 using QLNS.Annotations;
 using QLNS.Commands;
 using QLNS.Models;
+using System.Collections.Specialized;
+using QLNS.Views;
 
 namespace QLNS.ViewModels
 {
     class SellBookViewModel : INotifyPropertyChanged
     {
         private ObservableCollection<ClientModel> _listClientToSell;
+        private int _billMoney = 0;
+        public int BillMoney
+        {
+            get => _billMoney;
+            set
+            {
+                _billMoney = value;
+                OnPropertyChanged(nameof(BillMoney));
 
+            }
+        }
         public ObservableCollection<ClientModel> ListClientsToSell
         {
             get => _listClientToSell;
             set
             {
                 _listClientToSell = value;
+
+
                 OnPropertyChanged(nameof(ListClientsToSell));
             }
         }
@@ -57,6 +71,7 @@ namespace QLNS.ViewModels
 
             }
         }
+
 
         private BookModel _selectedSellBook;
 
@@ -96,18 +111,28 @@ namespace QLNS.ViewModels
             }
         }
 
+
+
+
         private ObservableCollection<BookModel> _listBooksToSell;
 
 
         public SellBookViewModel()
         {
-            _listClientToSell =  new ObservableCollection<ClientModel>(); 
-            _listBooksToSell = new ObservableCollection<BookModel>(); 
+            _listClientToSell = new ObservableCollection<ClientModel>();
+            _listBooksToSell = new ObservableCollection<BookModel>();
             _listBooksInSell = new ObservableCollection<BookModel>();
             ReadBookData();
             ReadClientData();
 
             SelectedBook = new BookModel();
+            _listBooksInSell.CollectionChanged += new NotifyCollectionChangedEventHandler(ListCollectionChanged);
+
+
+        }
+        public void ListCollectionChanged(Object sender, NotifyCollectionChangedEventArgs e)
+        {
+            BillMoney = SumBill();
         }
 
         public ICommand AddCommand
@@ -118,17 +143,41 @@ namespace QLNS.ViewModels
                     null, // CanExecute()
                     book =>
                     {
-                        
+
                         if (ListBooksInSell.Contains(book))
                         {
                             return;
                         }
                         if (SelectedBook.Name != "" && SelectedBook.Author != "" && SelectedBook.Category != "" && SelectedBook.Price != 0)
+                        {
                             ListBooksInSell.Add(SelectedBook);
+                            SelectedSellBook = SelectedBook;
+                        }
                         SelectedBook = new BookModel();
-                      
+
                     }
                 );
+            }
+        }
+
+        public ICommand AddSellQuantityCommand
+        {
+            get
+            {
+                return new RelayCommand<object>(
+                   null,
+                   book =>
+                   {
+                       var dialog = new DialogSell();
+                       if ((SelectedSellBook == null))
+                           return;
+                       if (dialog.ShowDialog() == true)
+                       {
+                           SelectedSellBook.SellQuantity = dialog.sellAmount;
+                       }
+
+                       BillMoney = SumBill();
+                   });
             }
         }
         public ICommand RemoveComand
@@ -143,6 +192,7 @@ namespace QLNS.ViewModels
                     });
             }
         }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         [NotifyPropertyChangedInvocator]
@@ -273,6 +323,25 @@ namespace QLNS.ViewModels
                 if (listdata.Count() >= 5)
                     ListClientsToSell.Add(_client);
             }
+        }
+
+        public int SumBill()
+        {
+            int total = 0;
+            try
+            {
+                foreach (BookModel book in ListBooksToSell)
+                {
+                    total += book.SellQuantity * book.Price;
+                }
+                return total;
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return 0;
         }
     }
 }

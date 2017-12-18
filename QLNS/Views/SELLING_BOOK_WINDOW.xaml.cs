@@ -27,20 +27,6 @@ namespace QLNS.Views
 
 
 
-        private void ListBook_OnSelected(object sender, RoutedEventArgs e)
-        {
-            
-            var dialog = new DialogSell();
-            ListView t = (ListView)sender;
-            if (t.SelectedItem == null)
-                return;
-            if (dialog.ShowDialog() == true)
-            {
-                BookModel temp = (BookModel)t.SelectedItems[0];
-                temp.SellQuantity = dialog.sellAmount;
-            }
-            t.SelectedItem = null;
-        }
-
+       
     }
 }

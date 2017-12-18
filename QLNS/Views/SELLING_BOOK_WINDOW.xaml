@@ -3,11 +3,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        
         xmlns:viewmodels ="clr-namespace:QLNS.ViewModels"
         mc:Ignorable="d"
      
-        Title="BANSACH_WINDOW" Height="597.938" Width="994.845">
+        Title="BANSACH_WINDOW" Height="650.438" Width="1048.845">
     <Window.DataContext>
         <viewmodels:SellBookViewModel></viewmodels:SellBookViewModel>
     </Window.DataContext>
@@ -81,7 +80,7 @@
                                 <TextBox Text="{Binding SelectedBook.Author}" HorizontalAlignment="Left" Height="23" Margin="95,59,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="200" IsReadOnly="True"/>
                                 <TextBox Text="{Binding SelectedBook.Quantity}" HorizontalAlignment="Left" Height="23" Margin="95,87,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="200" IsReadOnly="True"/>
                                 <TextBox Text="{Binding SelectedBook.Price}" HorizontalAlignment="Left" Height="23" Margin="95,115,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="200" IsReadOnly="True"/>
-                               
+
 
                             </Grid>
                         </GroupBox>
@@ -95,21 +94,25 @@
                 <Grid>
                     <Button Content="Thêm"  Command="{Binding AddCommand}" HorizontalAlignment="Center" Margin="231,5,443,0" VerticalAlignment="Top" Width="76" />
 
-                    <Button Content="Hoàn tất" HorizontalAlignment="Center" Margin="436,317,435,-303" VerticalAlignment="Top" Width="74" RenderTransformOrigin="2.073,3.131"/>
-
                     <Button Content="Xóa" Command="{Binding RemoveComand}" HorizontalAlignment="Center" Margin="432,5,244,0" VerticalAlignment="Top" Width="74"/>
                 </Grid>
 
             </GroupBox>
 
         </Grid>
-        <Grid Grid.Row="2" Margin="0,0,0,10">
-            <GroupBox Header="Thông Tin Hóa Đơn Bán Sách" Margin="15,10,15,25">
+        <Grid Grid.Row="2">
+            <GroupBox Header="Thông Tin Hóa Đơn Bán Sách" Margin="15,10,15,79">
                 <Grid>
                     <ListView  ItemsSource="{Binding ListBooksInSell, UpdateSourceTrigger=PropertyChanged}" 
                                SelectedItem="{Binding SelectedSellBook}"
-                               SelectionChanged="ListBook_OnSelected"
-                               x:Name="ListBook" Margin="5">
+                               
+                               x:Name="ListBook" Margin="5"
+                                xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="SelectionChanged">
+                                <i:InvokeCommandAction Command="{Binding AddSellQuantityCommand}" CommandParameter="{Binding ElementName=ListBook,Path=SelectedItem}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <WrapPanel>
@@ -139,6 +142,9 @@
                 </Grid>
 
             </GroupBox>
+            <TextBox x:Name="TextBill" Text="{Binding BillMoney , UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="38" Margin="892,275,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="-2.262,-0.587" IsReadOnly="True" />
+            <Label Content="Tổng Bill " HorizontalAlignment="Left" Margin="784,280,0,0" VerticalAlignment="Top" Height="38" Width="81" FontFamily="Times New Roman" FontSize="16" FontWeight="Bold"/>
+            <Button Content="Hoàn tất" HorizontalAlignment="Center" Margin="482,304,479,0" VerticalAlignment="Top" Width="80" RenderTransformOrigin="2.073,3.131" Height="22"/>
 
         </Grid>
     </Grid>

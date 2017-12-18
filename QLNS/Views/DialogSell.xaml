@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Nhập Số Lượng Cần Bán" Height="146.391" Width="285.567">
     <Grid Margin="0,0,2,-3">
-        <TextBox x:Name="Box" Margin="24,10,30,61"  ></TextBox>
+        <TextBox x:Name="Box" Text="0" Margin="24,10,30,61"  ></TextBox>
         <Button Margin="33,82,155,10" Click="Button_Click" Content="OK" ></Button>
         <Button Margin="159,82,30,10" Click="ButtonBase_OnClick" Content="Cancel" RenderTransformOrigin="-0.9,-0.536" ></Button>
     </Grid>
