@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:viewmodels ="clr-namespace:QLNS.ViewModels"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
      
         Title="BANSACH_WINDOW" Height="650.438" Width="1048.845">
@@ -17,7 +18,11 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
-            <GroupBox Header="Lập Hóa Đơn Bán Sách" Margin="15,10,15,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="268*"/>
+                <ColumnDefinition Width="773*"/>
+            </Grid.ColumnDefinitions>
+            <GroupBox Header="Lập Hóa Đơn Bán Sách" Margin="15,10,15,0" Grid.ColumnSpan="2">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition></ColumnDefinition>
@@ -33,7 +38,7 @@
                                 <Label Content="Sách: " HorizontalAlignment="Left" Margin="7,59,0,0" VerticalAlignment="Top"/>
                                 <Label Content="Ngày Lập: " HorizontalAlignment="Left" Margin="5,85,0,0" VerticalAlignment="Top"/>
 
-                                <TextBox  HorizontalAlignment="Left" Height="23" Margin="93,5,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="202"/>
+                                <TextBox x:Name="txtHD"  HorizontalAlignment="Left" Height="23" Margin="93,5,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="202" TextChanged="TextBox_TextChanged"/>
                                 <ComboBox ItemsSource="{Binding Path = ListClientsToSell,UpdateSourceTrigger=PropertyChanged}" 
                                           DisplayMemberPath="Name"
                                           SelectedItem="{Binding SelectedClient ,UpdateSourceTrigger=PropertyChanged}"
@@ -44,7 +49,7 @@
                                           DisplayMemberPath="Name"
                                           SelectedItem="{Binding SelectedBook ,UpdateSourceTrigger=PropertyChanged}"
                                           HorizontalAlignment="Left" Height="23" Margin="93,59,0,0"   VerticalAlignment="Top" Width="202"/>
-                                <DatePicker HorizontalAlignment="Left" Margin="93,87,0,0" VerticalAlignment="Top" Width="202"/>
+                                <DatePicker x:Name="txtDate" DisplayDate="{x:Static sys:DateTime.Now}" SelectedDate="{x:Static sys:DateTime.Now}" HorizontalAlignment="Left" Margin="93,87,0,0" VerticalAlignment="Top" Width="202"/>
                             </Grid>
                         </GroupBox>
                     </Grid>
@@ -57,9 +62,9 @@
                                 <Label Content="Email: " HorizontalAlignment="Left" Margin="5,85,0,0" VerticalAlignment="Top"/>
                                 <Label Content="Số Tiền Nợ: " HorizontalAlignment="Left" Margin="5,111,0,0" VerticalAlignment="Top"/>
 
-                                <TextBox Text="{Binding SelectedClient.Name}" HorizontalAlignment="Left" Height="23" Margin="95,3,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="200" IsReadOnly="True"/>
-                                <TextBox Text="{Binding SelectedClient.Address}" HorizontalAlignment="Left" Height="23" Margin="95,31,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="200" IsReadOnly="True"/>
-                                <TextBox Text="{Binding SelectedClient.Phonenum}"  HorizontalAlignment="Left" Height="23" Margin="95,59,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="200" IsReadOnly="True"/>
+                                <TextBox x:Name="txtName" Text="{Binding SelectedClient.Name}" HorizontalAlignment="Left" Height="23" Margin="95,3,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="200" IsReadOnly="True"/>
+                                <TextBox x:Name="txtAddress" Text="{Binding SelectedClient.Address}" HorizontalAlignment="Left" Height="23" Margin="95,31,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="200" IsReadOnly="True"/>
+                                <TextBox x:Name="txtPhone" Text="{Binding SelectedClient.Phonenum}"  HorizontalAlignment="Left" Height="23" Margin="95,59,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="200" IsReadOnly="True"/>
                                 <TextBox Text="{Binding SelectedClient.Email}" HorizontalAlignment="Left" Height="23" Margin="95,87,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="200" IsReadOnly="True"/>
                                 <TextBox Text="{Binding SelectedClient.Debt}" HorizontalAlignment="Left" Height="23" Margin="95,115,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="200" IsReadOnly="True"/>
                             </Grid>
@@ -144,7 +149,7 @@
             </GroupBox>
             <TextBox x:Name="TextBill" Text="{Binding BillMoney , UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="38" Margin="892,275,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="-2.262,-0.587" IsReadOnly="True" />
             <Label Content="Tổng Bill " HorizontalAlignment="Left" Margin="784,280,0,0" VerticalAlignment="Top" Height="38" Width="81" FontFamily="Times New Roman" FontSize="16" FontWeight="Bold"/>
-            <Button Content="Hoàn tất" HorizontalAlignment="Center" Margin="482,304,479,0" VerticalAlignment="Top" Width="80" RenderTransformOrigin="2.073,3.131" Height="22"/>
+            <Button x:Name="HoanTatButton" Content="Hoàn tất" HorizontalAlignment="Center" Margin="482,304,479,0" VerticalAlignment="Top" Width="80" RenderTransformOrigin="2.073,3.131" Height="22" Click="HoanTatButton_Click"/>
 
         </Grid>
     </Grid>
