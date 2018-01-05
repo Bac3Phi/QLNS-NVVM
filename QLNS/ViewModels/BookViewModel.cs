@@ -43,8 +43,16 @@ namespace QLNS.ViewModels
                     null, // CanExecute()
                     book =>
                     {
-                        SelectedBook.Quantity += AddionalQuantity;
-                        AddionalQuantity = 0;
+
+                        if (SelectedBook != null)
+                        {
+                            SelectedBook.Quantity += AddionalQuantity;
+                            AddionalQuantity = 0;
+                        }
+                        else
+                        {
+                            return;
+                        }
                     }
                 );
             }

@@ -6,7 +6,8 @@
         xmlns:viewModels="clr-namespace:QLNS.ViewModels"
         mc:Ignorable="d"
         Closing="CLIENT_WINDOW_OnClosing"
-        Title="KHACHHANG_WINDOW" Height="500" Width="800">
+        MinWidth="850"
+        Title="KHACHHANG_WINDOW" Height="506" Width="850">
     <Window.DataContext>
         <viewModels:ClientViewModel>
         </viewModels:ClientViewModel>
@@ -106,19 +107,19 @@
 
                     <Button x:Name="BtnXoa"  Visibility="Collapsed" Content="Xóa" Command="{Binding RemoveComand}" HorizontalAlignment="Center" Margin="348,5,348,0" VerticalAlignment="Top" Width="74" RenderTransformOrigin="-0.777,0.6"/>
 
-                    <Button Content="Làm mới" Click="ButtonBase_OnClick"  HorizontalAlignment="Center" Margin="674,5,22,0" VerticalAlignment="Top" Width="74"/>
+                    <Button Content="Làm mới" Click="ButtonBase_OnClick"  HorizontalAlignment="Right" Margin="0,5,12,0" VerticalAlignment="Top" Width="76"/>
 
-                    <CheckBox Content="Sửa" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked" HorizontalAlignment="Center" Margin="601,10,75,0" VerticalAlignment="Top" Width="74" FontSize="12"/>
+                    <CheckBox Content="Sửa" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked" HorizontalAlignment="Right" Margin="0,10,75,0" VerticalAlignment="Top" Width="74" FontSize="12"/>
                     <Button x:Name="BtnNhap"
                             Content="Thu" Command="{Binding UpdateCommand}" 
-                            HorizontalAlignment="Center" Margin="319,5,385,0" VerticalAlignment="Top" Width="76"/>
+                            HorizontalAlignment="Center" Margin="304,5,378,8" Width="68"/>
                 </Grid>
 
             </GroupBox>
 
         </Grid>
         <Grid Grid.Row="2">
-            <GroupBox Header="Thông Tin Khách Hàng" Margin="15,10,15,0">
+            <GroupBox Header="Thông Tin Khách Hàng" Margin="15,10,15,5">
                 <Grid>
                     <ListView ItemsSource="{Binding ListClient, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedClient}" x:Name="ListClient" Margin="5" >
                         <ListView.ItemTemplate>

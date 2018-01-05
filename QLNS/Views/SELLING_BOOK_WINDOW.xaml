@@ -7,7 +7,7 @@
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
      
-        Title="BANSACH_WINDOW" Height="650.438" Width="1048.845">
+        Title="BANSACH_WINDOW" Height="646.438" Width="1058.845">
     <Window.DataContext>
         <viewmodels:SellBookViewModel></viewmodels:SellBookViewModel>
     </Window.DataContext>
@@ -38,14 +38,14 @@
                                 <Label Content="Sách: " HorizontalAlignment="Left" Margin="7,59,0,0" VerticalAlignment="Top"/>
                                 <Label Content="Ngày Lập: " HorizontalAlignment="Left" Margin="5,85,0,0" VerticalAlignment="Top"/>
 
-                                <TextBox x:Name="txtHD"  HorizontalAlignment="Left" Height="23" Margin="93,5,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="202" TextChanged="TextBox_TextChanged"/>
+                                <TextBox x:Name="TxtMHD"  HorizontalAlignment="Left" Height="23" Margin="93,5,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="202" TextChanged="TextBox_TextChanged"/>
                                 <ComboBox ItemsSource="{Binding Path = ListClientsToSell,UpdateSourceTrigger=PropertyChanged}" 
                                           DisplayMemberPath="Name"
                                           SelectedItem="{Binding SelectedClient ,UpdateSourceTrigger=PropertyChanged}"
                                           HorizontalAlignment="Left"
                                           Height="23" Margin="93,31,0,0"  
                                           VerticalAlignment="Top" Width="202"/>
-                                <ComboBox ItemsSource="{Binding Path = ListBooksToSell ,UpdateSourceTrigger=PropertyChanged}" 
+                                <ComboBox x:Name="cbBook" ItemsSource="{Binding Path = ListBooksToSell ,UpdateSourceTrigger=PropertyChanged}" 
                                           DisplayMemberPath="Name"
                                           SelectedItem="{Binding SelectedBook ,UpdateSourceTrigger=PropertyChanged}"
                                           HorizontalAlignment="Left" Height="23" Margin="93,59,0,0"   VerticalAlignment="Top" Width="202"/>
@@ -147,9 +147,9 @@
                 </Grid>
 
             </GroupBox>
-            <TextBox x:Name="TextBill" Text="{Binding BillMoney , UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="38" Margin="892,275,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="-2.262,-0.587" IsReadOnly="True" />
-            <Label Content="Tổng Bill " HorizontalAlignment="Left" Margin="784,280,0,0" VerticalAlignment="Top" Height="38" Width="81" FontFamily="Times New Roman" FontSize="16" FontWeight="Bold"/>
-            <Button x:Name="HoanTatButton" Content="Hoàn tất" HorizontalAlignment="Center" Margin="482,304,479,0" VerticalAlignment="Top" Width="80" RenderTransformOrigin="2.073,3.131" Height="22" Click="HoanTatButton_Click"/>
+            <TextBox x:Name="TextBill" Text="{Binding BillMoney , UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Right" Margin="0,0,25,47" TextWrapping="Wrap" Width="156" RenderTransformOrigin="-2.262,-0.587" IsReadOnly="True" Height="23" VerticalAlignment="Bottom" />
+            <Label Content="Tổng Bill " HorizontalAlignment="Right" Margin="0,0,186,32" Width="81" FontFamily="Times New Roman" FontSize="16" FontWeight="Bold" Height="38" VerticalAlignment="Bottom"/>
+            <Button x:Name="HoanTatButton" Content="Hoàn tất" HorizontalAlignment="Right" Margin="0,0,25,10" Width="92" RenderTransformOrigin="2.073,3.131" Click="HoanTatButton_Click" Height="22" VerticalAlignment="Bottom"/>
 
         </Grid>
     </Grid>

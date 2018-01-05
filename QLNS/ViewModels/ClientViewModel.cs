@@ -90,12 +90,18 @@ namespace QLNS.ViewModels
         {
             get
             {
+                
                 return new RelayCommand<object>(
                     null, // CanExecute()
                     book =>
                     {
-                        SelectedClient.Debt -= PaidMoney;
-                        PaidMoney = 0;
+                        if (SelectedClient != null)
+                        {
+                            SelectedClient.Debt -= PaidMoney;
+                            PaidMoney = 0;
+                        }
+                        else return;
+                        
                     }
                 );
             }

@@ -52,7 +52,7 @@ namespace QLNS.Views
 
             //Tiêu đề file Excel
             sheet.Cells[1, 1] = "Mã hóa đơn";
-            sheet.Cells[1, 2] = txtHD.Text;//text book hóa đơn
+            sheet.Cells[1, 2] = TxtMHD.Text;//text book hóa đơn
             sheet.Cells[2, 1] = "Ngày ";
             sheet.Cells[2, 2] = txtDate.DisplayDate.ToString();  //lấy ngày hệ thống
             sheet.Cells[3, 1] = "Họ và tên";
@@ -104,33 +104,141 @@ namespace QLNS.Views
                 
 
             }
-            
+            // ghi count vao` path1
 
-            // Khởi động chtr Excell
-            //System.Globalization.CultureInfo oldCI = System.Threading.Thread.CurrentThread.CurrentCulture;
-            //System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("en-US");
-            //cExcel.Application exApp = new cExcel.Application();
-            //// Lấy sheet 1.
-            //string workbookPath = "c:\\text.xls";
+            //tinh lai so luong nhap
+            foreach (BookModel sellbook in ListBook.ItemsSource)
+            {
+                sellbook.Quantity -= sellbook.SellQuantity;
+                sellbook.SellQuantity = 0;
+            }
+            //ghi listbookInsell + listtosell
+            //Listbooktosell
 
-            //cExcel.Workbook exBook = exApp.Workbooks.Open(workbookPath,
-            //        0, false, 5, "", "", false, Excel.XlPlatform.xlWindows, "",
-            //        true, false, 0, true, false, false);
-            //cExcel.Worksheet exSheet = (cExcel.Worksheet)exBook.Worksheets[1];
-            //exSheet.Activate();
-            //exSheet.Name = "Export Data Sheet";
-            //cExcel.Range rng = exSheet.get_Range("A1", "K25");
-            //rng.Value2 = "giá trị muốn đưa vào";
-            //rng.Columns.AutoFit();
-            //exBook.SaveCopyAs("C:\\text.xls");
-            //exApp.Quit();
-            //exBook.Close(false, false, false);
-            //exApp.Quit();
-            //System.Threading.Thread.CurrentThread.CurrentCulture = oldCI;
+          
+            this.Close();
+            //Listbookinsell
+            foreach (BookModel Book in cbBook.ItemsSource)
+            {
+                MessageBox.Show(Book.Name);
+                MessageBox.Show(Book.Author);
+                MessageBox.Show(Book.Category);
+                MessageBox.Show(Book.SellQuantity.ToString());
+                MessageBox.Show(Book.Price.ToString());
+            }
+            this.Close();
+
+        }
+        public string path1 = Directory.GetCurrentDirectory() + "\\Database\\MHD.txt";
+        public string ReadMHD()
+        {
+
+            String a = "";
+            try
+            {
+                using (StreamReader sw = new StreamReader(path1))
+                {
+                    a = sw.ReadToEnd();
+
+
+                }
+            }
+            catch (Exception e)
+            {
+                // MessageBox.Show("Can't Read data!!!\nError: " + e);
+            }
+            return (int.Parse(a) + 1).ToString();
 
 
         }
+        public string count = "";
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            string num = ReadMHD();
+            count = num;
+            if (num.Length == 1)
+                TxtMHD.Text = "HD00" + num;
+            else if (num.Length == 2)
+                TxtMHD.Text = "HD0" + num;
+            else
+                TxtMHD.Text = "HD" + num;
+        }
+        //ghi count vao path 1
+        public void WriteBookMHD()
+        {
+            using (StreamWriter sw = new StreamWriter(Directory.GetCurrentDirectory() + "\\Database\\MHD.txt"))
+
+                foreach (BookModel book in ListBook.ItemsSource)
+                {
+                    try
+                    {
+                        sw.WriteLine(count);
+                        sw.WriteLine(Environment.NewLine); // 2 cai xuong dong
+                       
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBox.Show("Can't write data!!!\nError: " + e);
+                    }
+
+                }
+            
+        }
+        //ghi listbookInsell + listtosell
+        //Listbooktosell
+        public void WriteBookToSell()
+        {
+            using (StreamWriter sw = new StreamWriter(Directory.GetCurrentDirectory() + "\\Database\\BookData.txt"))
+
+                foreach (BookModel Book in cbBook.ItemsSource)
+                {
+                    try
+                    {
+                        sw.WriteLine("@  " + Book.Name);
+                        sw.WriteLine("@! " + Book.Category);
+                        sw.WriteLine("@@ " + Book.Author);
+                        sw.WriteLine("@# " + Book.Price.ToString());
+                        sw.WriteLine("@$ " + Book.Quantity.ToString());
+                        sw.WriteLine(Environment.NewLine); // 2 cai xuong dong
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBox.Show("Can't write data!!!\nError: " + e);
+                    }
+
+                }
+
+        }
+        //Listbooktosell
+        public void WriteBookInSell()
+        {
+            using (StreamWriter sw = new StreamWriter(Directory.GetCurrentDirectory() + "\\Database\\BookData.txt"))
+
+                foreach (BookModel book in ListBook.ItemsSource)
+                {
+
+                    try
+                    {
+                        sw.WriteLine("@  " + book.Name);
+                        sw.WriteLine("@! " + book.Category);
+                        sw.WriteLine("@@ " + book.Author);
+                        sw.WriteLine("@# " + book.Price.ToString());
+                        sw.WriteLine("@$ " + book.Quantity.ToString());
+                        sw.WriteLine("@%" + book.SellQuantity);
+                        sw.WriteLine(Environment.NewLine); // 2 cai xuong dong
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBox.Show("Can't write data!!!\nError: " + e);
+                    }
+
+                }
+
+        }
+
     }
+}
 
     
-}
+

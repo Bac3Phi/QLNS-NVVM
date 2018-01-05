@@ -5,10 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QLNS.Views"
         mc:Ignorable="d"
-        Title="Nhập Số Lượng Cần Bán" Height="146.391" Width="285.567">
+        Title="Số Lượng Cần Bán" Height="146.391" Width="285.567" ResizeMode="NoResize">
     <Grid Margin="0,0,2,-3">
-        <TextBox x:Name="Box" Text="0" Margin="24,10,30,61"  ></TextBox>
-        <Button Margin="33,82,155,10" Click="Button_Click" Content="OK" ></Button>
-        <Button Margin="159,82,30,10" Click="ButtonBase_OnClick" Content="Cancel" RenderTransformOrigin="-0.9,-0.536" ></Button>
+        <Label Content="Nhập số lượng cần bán" HorizontalAlignment="Left" Margin="24,12,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="Box" Text="0" Margin="24,38,30,52"  ></TextBox>
+        <Button Margin="24,73,163,10" Click="Button_Click" Content="OK" ></Button>
+        <Button Margin="159,73,30,10" Click="ButtonBase_OnClick" Content="Cancel" RenderTransformOrigin="-0.9,-0.536" ></Button>
+        
     </Grid>
 </Window>

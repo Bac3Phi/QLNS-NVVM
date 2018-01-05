@@ -86,11 +86,9 @@ C:\Users\15520\Desktop\QLNS-NVVM-master\QLNS\obj\Debug\QLNS.csproj.GenerateResou
 C:\Users\15520\Desktop\QLNS-NVVM-master\QLNS\obj\Debug\QLNS.csproj.CoreCompileInputs.cache
 C:\Users\15520\Desktop\QLNS-NVVM-master\QLNS\obj\Debug\QLNS.exe
 C:\Users\15520\Desktop\QLNS-NVVM-master\QLNS\obj\Debug\QLNS.pdb
-F:\UIT\GIT\QLNS-NVVM\QLNS\obj\Debug\Views\BANSACH_WINDOW.g.cs
 F:\UIT\GIT\QLNS-NVVM\QLNS\obj\Debug\Views\BOOK_WINDOW.g.cs
 F:\UIT\GIT\QLNS-NVVM\QLNS\obj\Debug\Views\CLIENT_WINDOW.g.cs
 F:\UIT\GIT\QLNS-NVVM\QLNS\obj\Debug\GeneratedInternalTypeHelper.g.cs
-F:\UIT\GIT\QLNS-NVVM\QLNS\obj\Debug\Views\BANSACH_WINDOW.baml
 F:\UIT\GIT\QLNS-NVVM\QLNS\obj\Debug\Views\BOOK_WINDOW.baml
 F:\UIT\GIT\QLNS-NVVM\QLNS\obj\Debug\Views\CLIENT_WINDOW.baml
 C:\Users\15520\Desktop\QLNS-NVVM\QLNS\bin\Debug\QLNS.exe.config
@@ -170,3 +168,46 @@ C:\Users\DANGKHOI\Desktop\QLNS-NVVM-master\QLNS\obj\Debug\Interop.MSAATEXTLib.dl
 C:\Users\DANGKHOI\Desktop\QLNS-NVVM-master\QLNS\obj\Debug\QLNS.csproj.ResolveComReference.cache
 C:\Users\15520\Desktop\QLNS-NVVM\QLNS\obj\Debug\Interop.MSAATEXTLib.dll
 C:\Users\15520\Desktop\QLNS-NVVM\QLNS\obj\Debug\QLNS.csproj.ResolveComReference.cache
+C:\Users\Administrator\Downloads\QLNS-NVVM-master (1)\QLNS-NVVM-master\QLNS\bin\Debug\QLNS.exe.config
+C:\Users\Administrator\Downloads\QLNS-NVVM-master (1)\QLNS-NVVM-master\QLNS\bin\Debug\QLNS.exe
+C:\Users\Administrator\Downloads\QLNS-NVVM-master (1)\QLNS-NVVM-master\QLNS\bin\Debug\QLNS.pdb
+C:\Users\Administrator\Downloads\QLNS-NVVM-master (1)\QLNS-NVVM-master\QLNS\bin\Debug\MahApps.Metro.dll
+C:\Users\Administrator\Downloads\QLNS-NVVM-master (1)\QLNS-NVVM-master\QLNS\bin\Debug\MaterialDesignColors.dll
+C:\Users\Administrator\Downloads\QLNS-NVVM-master (1)\QLNS-NVVM-master\QLNS\bin\Debug\MaterialDesignThemes.MahApps.dll
+C:\Users\Administrator\Downloads\QLNS-NVVM-master (1)\QLNS-NVVM-master\QLNS\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\Users\Administrator\Downloads\QLNS-NVVM-master (1)\QLNS-NVVM-master\QLNS\bin\Debug\System.Windows.Interactivity.dll
+C:\Users\Administrator\Downloads\QLNS-NVVM-master (1)\QLNS-NVVM-master\QLNS\bin\Debug\MahApps.Metro.pdb
+C:\Users\Administrator\Downloads\QLNS-NVVM-master (1)\QLNS-NVVM-master\QLNS\bin\Debug\MahApps.Metro.xml
+C:\Users\Administrator\Downloads\QLNS-NVVM-master (1)\QLNS-NVVM-master\QLNS\bin\Debug\MaterialDesignThemes.Wpf.pdb
+C:\Users\Administrator\Downloads\QLNS-NVVM-master (1)\QLNS-NVVM-master\QLNS\bin\Debug\MaterialDesignThemes.Wpf.xml
+C:\Users\Administrator\Downloads\QLNS-NVVM-master (1)\QLNS-NVVM-master\QLNS\obj\Debug\QLNS.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Downloads\QLNS-NVVM-master (1)\QLNS-NVVM-master\QLNS\obj\Debug\Interop.MSAATEXTLib.dll
+C:\Users\Administrator\Downloads\QLNS-NVVM-master (1)\QLNS-NVVM-master\QLNS\obj\Debug\QLNS.csproj.ResolveComReference.cache
+C:\Users\Administrator\Downloads\QLNS-NVVM-master (1)\QLNS-NVVM-master\QLNS\obj\Debug\MainWindow.g.cs
+C:\Users\Administrator\Downloads\QLNS-NVVM-master (1)\QLNS-NVVM-master\QLNS\obj\Debug\MAIN_WINDOW.g.cs
+C:\Users\Administrator\Downloads\QLNS-NVVM-master (1)\QLNS-NVVM-master\QLNS\obj\Debug\Views\BOOK_WINDOW.g.cs
+C:\Users\Administrator\Downloads\QLNS-NVVM-master (1)\QLNS-NVVM-master\QLNS\obj\Debug\Views\CLIENT_WINDOW.g.cs
+C:\Users\Administrator\Downloads\QLNS-NVVM-master (1)\QLNS-NVVM-master\QLNS\obj\Debug\Views\DialogSell.g.cs
+C:\Users\Administrator\Downloads\QLNS-NVVM-master (1)\QLNS-NVVM-master\QLNS\obj\Debug\Views\SELLING_BOOK_WINDOW.g.cs
+C:\Users\Administrator\Downloads\QLNS-NVVM-master (1)\QLNS-NVVM-master\QLNS\obj\Debug\App.g.cs
+C:\Users\Administrator\Downloads\QLNS-NVVM-master (1)\QLNS-NVVM-master\QLNS\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Administrator\Downloads\QLNS-NVVM-master (1)\QLNS-NVVM-master\QLNS\obj\Debug\QLNS_MarkupCompile.cache
+C:\Users\Administrator\Downloads\QLNS-NVVM-master (1)\QLNS-NVVM-master\QLNS\obj\Debug\QLNS_MarkupCompile.lref
+C:\Users\Administrator\Downloads\QLNS-NVVM-master (1)\QLNS-NVVM-master\QLNS\obj\Debug\MainWindow.baml
+C:\Users\Administrator\Downloads\QLNS-NVVM-master (1)\QLNS-NVVM-master\QLNS\obj\Debug\MAIN_WINDOW.baml
+C:\Users\Administrator\Downloads\QLNS-NVVM-master (1)\QLNS-NVVM-master\QLNS\obj\Debug\Views\BOOK_WINDOW.baml
+C:\Users\Administrator\Downloads\QLNS-NVVM-master (1)\QLNS-NVVM-master\QLNS\obj\Debug\Views\CLIENT_WINDOW.baml
+C:\Users\Administrator\Downloads\QLNS-NVVM-master (1)\QLNS-NVVM-master\QLNS\obj\Debug\Views\DialogSell.baml
+C:\Users\Administrator\Downloads\QLNS-NVVM-master (1)\QLNS-NVVM-master\QLNS\obj\Debug\Views\SELLING_BOOK_WINDOW.baml
+C:\Users\Administrator\Downloads\QLNS-NVVM-master (1)\QLNS-NVVM-master\QLNS\obj\Debug\QLNS.g.resources
+C:\Users\Administrator\Downloads\QLNS-NVVM-master (1)\QLNS-NVVM-master\QLNS\obj\Debug\QLNS.Properties.Resources.resources
+C:\Users\Administrator\Downloads\QLNS-NVVM-master (1)\QLNS-NVVM-master\QLNS\obj\Debug\QLNS.csproj.GenerateResource.Cache
+C:\Users\Administrator\Downloads\QLNS-NVVM-master (1)\QLNS-NVVM-master\QLNS\obj\Debug\QLNS.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Downloads\QLNS-NVVM-master (1)\QLNS-NVVM-master\QLNS\obj\Debug\QLNS.exe
+C:\Users\Administrator\Downloads\QLNS-NVVM-master (1)\QLNS-NVVM-master\QLNS\obj\Debug\QLNS.pdb
+F:\UIT\GIT\QLNS-NVVM\QLNS\obj\Debug\Interop.MSAATEXTLib.dll
+F:\UIT\GIT\QLNS-NVVM\QLNS\obj\Debug\QLNS.csproj.ResolveComReference.cache
+F:\UIT\GIT\QLNS-NVVM\QLNS\obj\Debug\Views\DialogSell.g.cs
+F:\UIT\GIT\QLNS-NVVM\QLNS\obj\Debug\Views\SELLING_BOOK_WINDOW.g.cs
+F:\UIT\GIT\QLNS-NVVM\QLNS\obj\Debug\Views\DialogSell.baml
+F:\UIT\GIT\QLNS-NVVM\QLNS\obj\Debug\Views\SELLING_BOOK_WINDOW.baml

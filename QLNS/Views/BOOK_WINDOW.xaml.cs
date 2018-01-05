@@ -111,7 +111,6 @@ namespace QLNS.Views
         {
             WriteBookData();
         }
-
         public void WriteBookData()
         {
             using (StreamWriter sw = new StreamWriter(Directory.GetCurrentDirectory() + "\\Database\\BookData.txt"))
@@ -125,6 +124,7 @@ namespace QLNS.Views
                         sw.WriteLine("@@ " + book.Author);
                         sw.WriteLine("@# " + book.Price.ToString());
                         sw.WriteLine("@$ " + book.Quantity.ToString());
+                        sw.WriteLine("@%" + book.SellQuantity);
                         sw.WriteLine(Environment.NewLine); // 2 cai xuong dong
                     }
                     catch (Exception e)
