@@ -5,7 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QLNS"
         mc:Ignorable="d"
-        Title="MAIN_WINDOW" Height="300" Width="300">
+        
+        Title="Quản Lý Nhà Sách" Height="450" Width="800" ResizeMode="NoResize" Icon="pack://siteoforigin:,,,/Resources/icons8_Booking.ico">
+    <Window.Background>
+        <ImageBrush ImageSource="pack://siteoforigin:,,,/Resources/wallpaper_book_by_analaurasam-d6flgtf.bmp"/>
+    </Window.Background>
+    
     <Grid>
         <DockPanel>
             <Menu DockPanel.Dock="Top">
@@ -16,8 +21,14 @@
                     <Separator />
                     <MenuItem Header="_Thoát" Click="MenuItem_Click_3" />
                 </MenuItem>
+ 
+
             </Menu>
-            <TextBox AcceptsReturn="True" />
+            <TextBox AcceptsReturn="True" >
+                <TextBox.Background>
+                    <ImageBrush/>
+                </TextBox.Background>
+            </TextBox>
         </DockPanel>
 
 

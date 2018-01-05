@@ -61,11 +61,31 @@ namespace QLNS.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon icons8_Booking {
+            get {
+                object obj = ResourceManager.GetObject("icons8_Booking", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Excel files (*.xlsx)|*.xlsx.
         /// </summary>
         internal static string SELLING_BOOK_WINDOW_HoanTatButton_Click_Excel_files____xlsx____xlsx {
             get {
                 return ResourceManager.GetString("SELLING_BOOK_WINDOW_HoanTatButton_Click_Excel_files____xlsx____xlsx", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap wallpaper_book_by_analaurasam_d6flgtf {
+            get {
+                object obj = ResourceManager.GetObject("wallpaper_book_by_analaurasam_d6flgtf", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
     }

@@ -1,40 +1,32 @@
-@  TEst1
-@! abs
-@@ phi
-@# 10
+@  Ping - Vượt Ao Tù Ra Biển Lớn
+@! Sách kỹ năng - Sống đẹp
+@@ Stuart Avery Gold
+@# 48000
 @$ 10
 @%0
 
 
-@  Phong
-@! 1234
-@@ Phong
-@# 220
-@$ 35
+@  Thiện, Ác Và Smartphone
+@! Sách văn học
+@@ Đặng Hoàng Giang
+@# 66000
+@$ 5
 @%0
 
 
-@  Test2
-@! Toan
-@@ Phi
-@# 100
-@$ 110
+@  Họ Sẽ Chẳng Biết
+@! Sách Tổng Hợp
+@@ Duy Trần
+@# 60000
+@$ 30
 @%0
 
 
-@  Phongg
-@! 123
-@@ 123
-@# 1230
-@$ 1230
-@%0
-
-
-@  gdgddgdgrddgrdgr
-@! fhththtfhtfhftbfdddgdgdgr
-@@ ghfhfhfhfhfhf
-@# 3333330
-@$ 2220
+@  Tư Duy Như Một Kẻ Lập Dị
+@! Sách Kinh Tế
+@@  Steven D.Levitt - Stephen J. Dubner
+@# 79000
+@$ 9
 @%0
 
 

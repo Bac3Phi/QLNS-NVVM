@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Closing="BOOK_WINDOW_OnClosed"
         MinWidth="840"
-        Title="SACH_WINDOW" Height="520" Width="830">
+        Title="Quản Lý Sách" Height="520" Width="830" Icon="pack://siteoforigin:,,,/Resources/icons8_Booking.ico">
     <Window.DataContext>
         <viewmodels:BookViewModel>
         </viewmodels:BookViewModel>

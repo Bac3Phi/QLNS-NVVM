@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("icons8_literature.ico")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("icons8_booking.ico")]
 
 

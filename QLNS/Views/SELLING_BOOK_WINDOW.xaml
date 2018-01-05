@@ -7,7 +7,7 @@
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
      
-        Title="BANSACH_WINDOW" Height="646.438" Width="1058.845">
+        Title="Hóa Đơn Bán Sách" Height="646.438" Width="1058.845" Icon="pack://siteoforigin:,,,/Resources/icons8_Booking.ico" >
     <Window.DataContext>
         <viewmodels:SellBookViewModel></viewmodels:SellBookViewModel>
     </Window.DataContext>

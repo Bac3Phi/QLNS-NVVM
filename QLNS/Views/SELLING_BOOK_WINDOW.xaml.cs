@@ -91,13 +91,13 @@ namespace QLNS.Views
             //Tạo save dialog
             SaveFileDialog browser = new SaveFileDialog();
             browser.Filter = Properties.Resources.SELLING_BOOK_WINDOW_HoanTatButton_Click_Excel_files____xlsx____xlsx;
-            browser.FileName = "Test";
+            browser.FileName = "HoaDon";
 
             if (browser.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 browser.AddExtension = true;
                 browser.RestoreDirectory = true;
-                MessageBox.Show(browser.FileName);
+                //MessageBox.Show(browser.FileName);
                 book.SaveAs(browser.FileName);
                 book.Saved = true;
                 app.Quit();
@@ -118,14 +118,14 @@ namespace QLNS.Views
           
             this.Close();
             //Listbookinsell
-            foreach (BookModel Book in cbBook.ItemsSource)
-            {
-                MessageBox.Show(Book.Name);
-                MessageBox.Show(Book.Author);
-                MessageBox.Show(Book.Category);
-                MessageBox.Show(Book.SellQuantity.ToString());
-                MessageBox.Show(Book.Price.ToString());
-            }
+            //foreach (BookModel Book in cbBook.ItemsSource)
+            //{
+            //    MessageBox.Show(Book.Name);
+            //    MessageBox.Show(Book.Author);
+            //    MessageBox.Show(Book.Category);
+            //    MessageBox.Show(Book.SellQuantity.ToString());
+            //    MessageBox.Show(Book.Price.ToString());
+            //}
             this.Close();
 
         }
@@ -237,6 +237,7 @@ namespace QLNS.Views
 
         }
 
+        
     }
 }
 

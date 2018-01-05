@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Closing="CLIENT_WINDOW_OnClosing"
         MinWidth="850"
-        Title="KHACHHANG_WINDOW" Height="506" Width="850">
+        Title="Quản Lý Khách Hàng" Height="506" Width="850" Icon="pack://siteoforigin:,,,/Resources/icons8_Booking.ico">
     <Window.DataContext>
         <viewModels:ClientViewModel>
         </viewModels:ClientViewModel>
