@@ -119,6 +119,8 @@ namespace QLNS.ViewModels
 
         private int _paidMoney;
 
+      
+
         private ObservableCollection<ClientModel> _listClients;
 
         public ClientViewModel()

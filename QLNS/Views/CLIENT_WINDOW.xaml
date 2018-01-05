@@ -90,7 +90,7 @@
                                  LostFocus="txt_LostFocus" Validation.Error="Validation_Error"
                                  Text="{Binding NewClient.Debt , UpdateSourceTrigger=PropertyChanged , ValidatesOnDataErrors=true, NotifyOnValidationError=true}"
                                  HorizontalAlignment="Left" Height="23" Margin="100,41,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="255"/>
-                        <TextBox  x:Name="TxtThu" HorizontalAlignment="Left" Height="23" Margin="100,69,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="255"/>
+                        <TextBox  x:Name="TxtThu" Text="{Binding PaidMoney , UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="23" Margin="100,69,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="255"/>
 
                     </Grid>
                 </Grid>

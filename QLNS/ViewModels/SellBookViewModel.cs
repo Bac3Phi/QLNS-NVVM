@@ -41,6 +41,17 @@ namespace QLNS.ViewModels
                 OnPropertyChanged(nameof(ListClientsToSell));
             }
         }
+        public bool checkCb
+        {
+            get => _checkCb;
+            set
+            {
+                _checkCb = value;
+                OnPropertyChanged(nameof(checkCb));
+            }
+        }
+
+        private bool _checkCb = true;
 
         private BookModel _selectedBook;
 
@@ -151,10 +162,12 @@ namespace QLNS.ViewModels
                         if (SelectedBook.Name != "" && SelectedBook.Author != "" && SelectedBook.Category != "" && SelectedBook.Price != 0)
                         {
                             ListBooksInSell.Add(SelectedBook);
+                            if (ListBooksInSell.Count > 0) checkCb = false;
+                            ListBooksToSell.Remove(SelectedBook);
                             SelectedSellBook = SelectedBook;
                         }
                         SelectedBook = new BookModel();
-
+                        
                     }
                 );
             }
@@ -174,7 +187,12 @@ namespace QLNS.ViewModels
                        if (dialog.ShowDialog() == true)
                        {
                            SelectedSellBook.SellQuantity = dialog.sellAmount;
+                           if (SelectedSellBook.SellQuantity > SelectedSellBook.Quantity)
+                               SelectedSellBook.SellQuantity = SelectedSellBook.Quantity;
+
                        }
+
+
 
                        BillMoney = SumBill();
                    });
@@ -188,7 +206,18 @@ namespace QLNS.ViewModels
                     null,
                     book =>
                     {
+                        if (SelectedSellBook == null)
+                            return;
+ 
+                        SelectedSellBook.SellQuantity = 0;
+                        ListBooksToSell.Add(SelectedSellBook);
                         ListBooksInSell.Remove(SelectedSellBook);
+                        if (ListBooksInSell.Count ==0)
+                        {
+                            checkCb = true;
+                        }
+
+                        SelectedSellBook = new BookModel();
                     });
             }
         }
@@ -330,7 +359,7 @@ namespace QLNS.ViewModels
             int total = 0;
             try
             {
-                foreach (BookModel book in ListBooksToSell)
+                foreach (BookModel book in ListBooksInSell)
                 {
                     total += book.SellQuantity * book.Price;
                 }

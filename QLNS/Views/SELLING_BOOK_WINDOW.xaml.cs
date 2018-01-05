@@ -91,7 +91,7 @@ namespace QLNS.Views
             //Tạo save dialog
             SaveFileDialog browser = new SaveFileDialog();
             browser.Filter = Properties.Resources.SELLING_BOOK_WINDOW_HoanTatButton_Click_Excel_files____xlsx____xlsx;
-            browser.FileName = "HoaDon";
+            browser.FileName = "HoaDon_" + txtDate.Text.Replace("/","-") + "_"+TxtMHD.Text;
 
             if (browser.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
@@ -115,6 +115,8 @@ namespace QLNS.Views
             //ghi listbookInsell + listtosell
             //Listbooktosell
 
+            WriteBookInSell();
+            WriteBookMHD();
           
             this.Close();
             //Listbookinsell
@@ -139,7 +141,7 @@ namespace QLNS.Views
                 using (StreamReader sw = new StreamReader(path1))
                 {
                     a = sw.ReadToEnd();
-
+                    return (int.Parse(a) + 1).ToString();
 
                 }
             }
@@ -147,14 +149,15 @@ namespace QLNS.Views
             {
                 // MessageBox.Show("Can't Read data!!!\nError: " + e);
             }
-            return (int.Parse(a) + 1).ToString();
-
+            return  1.ToString() ;
 
         }
+
         public string count = "";
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            
             string num = ReadMHD();
             count = num;
             if (num.Length == 1)
@@ -163,6 +166,7 @@ namespace QLNS.Views
                 TxtMHD.Text = "HD0" + num;
             else
                 TxtMHD.Text = "HD" + num;
+            HoanTatButton.IsEnabled = false;
         }
         //ghi count vao path 1
         public void WriteBookMHD()
@@ -187,34 +191,12 @@ namespace QLNS.Views
         }
         //ghi listbookInsell + listtosell
         //Listbooktosell
-        public void WriteBookToSell()
-        {
-            using (StreamWriter sw = new StreamWriter(Directory.GetCurrentDirectory() + "\\Database\\BookData.txt"))
-
-                foreach (BookModel Book in cbBook.ItemsSource)
-                {
-                    try
-                    {
-                        sw.WriteLine("@  " + Book.Name);
-                        sw.WriteLine("@! " + Book.Category);
-                        sw.WriteLine("@@ " + Book.Author);
-                        sw.WriteLine("@# " + Book.Price.ToString());
-                        sw.WriteLine("@$ " + Book.Quantity.ToString());
-                        sw.WriteLine(Environment.NewLine); // 2 cai xuong dong
-                    }
-                    catch (Exception e)
-                    {
-                        MessageBox.Show("Can't write data!!!\nError: " + e);
-                    }
-
-                }
-
-        }
+ 
         //Listbooktosell
         public void WriteBookInSell()
         {
             using (StreamWriter sw = new StreamWriter(Directory.GetCurrentDirectory() + "\\Database\\BookData.txt"))
-
+            {
                 foreach (BookModel book in ListBook.ItemsSource)
                 {
 
@@ -235,9 +217,52 @@ namespace QLNS.Views
 
                 }
 
+                foreach (BookModel Book in cbBook.ItemsSource)
+                {
+                    try
+                    {
+                        sw.WriteLine("@  " + Book.Name);
+                        sw.WriteLine("@! " + Book.Category);
+                        sw.WriteLine("@@ " + Book.Author);
+                        sw.WriteLine("@# " + Book.Price.ToString());
+                        sw.WriteLine("@$ " + Book.Quantity.ToString());
+                        sw.WriteLine(Environment.NewLine); // 2 cai xuong dong
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBox.Show("Can't write data!!!\nError: " + e);
+                    }
+
+                }
+            }
+
         }
 
-        
+
+    
+
+        private void CbClient_OnSelected(object sender, RoutedEventArgs e)
+        {
+            foreach (BookModel book in ListBook.ItemsSource)
+            {
+                cbClient.IsEnabled = false;
+                return;
+            }
+            cbClient.IsEnabled = true;
+
+        }
+
+        private void TextBill_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (TextBill.Text != "0" )
+            {
+                HoanTatButton.IsEnabled = true;
+            }
+            else
+            {
+                HoanTatButton.IsEnabled = false;
+            }
+        }
     }
 }
 

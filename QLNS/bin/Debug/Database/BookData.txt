@@ -1,17 +1,8 @@
-@  Ping - Vượt Ao Tù Ra Biển Lớn
-@! Sách kỹ năng - Sống đẹp
-@@ Stuart Avery Gold
-@# 48000
-@$ 10
-@%0
-
-
 @  Thiện, Ác Và Smartphone
 @! Sách văn học
 @@ Đặng Hoàng Giang
 @# 66000
-@$ 5
-@%0
+@$ 1000
 
 
 @  Họ Sẽ Chẳng Biết
@@ -19,7 +10,6 @@
 @@ Duy Trần
 @# 60000
 @$ 30
-@%0
 
 
 @  Tư Duy Như Một Kẻ Lập Dị
@@ -27,6 +17,12 @@
 @@  Steven D.Levitt - Stephen J. Dubner
 @# 79000
 @$ 9
-@%0
+
+
+@  Ping - Vượt Ao Tù Ra Biển Lớn
+@! Sách kỹ năng - Sống đẹp
+@@ Stuart Avery Gold
+@# 48000
+@$ 10
 
 

@@ -1,6 +1,6 @@
 @  Tp HCM
 @! Lục Trường Phong
-@@ 0
+@@ -30000
 @# gikizay@gmail.com
 @$ 0961789075
 
